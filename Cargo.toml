@@ -1,0 +1,78 @@
+[workspace]
+resolver = "2"
+members = ["promessa-types", "promessa-store", "promessa-eval", "promessa-runtime", "promessa-rpc", "promessa-graphql", "promessa-rest", "promessa-mcp", "promessa-cli", "promessa"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.89.0"
+license = "MIT"
+repository = "https://github.com/pleme-io/promessa"
+authors = ["pleme-io"]
+
+[workspace.dependencies]
+promessa-types = { path = "promessa-types" }
+promessa-store = { path = "promessa-store" }
+promessa-eval = { path = "promessa-eval" }
+promessa-runtime = { path = "promessa-runtime" }
+promessa-rpc = { path = "promessa-rpc" }
+promessa-graphql = { path = "promessa-graphql" }
+promessa-rest = { path = "promessa-rest" }
+promessa-mcp = { path = "promessa-mcp" }
+promessa-cli = { path = "promessa-cli" }
+promessa = { path = "promessa" }
+tatara-lisp = { path = "../tatara/tatara-lisp" }
+tatara-lisp-derive = { path = "../tatara/tatara-lisp-derive" }
+shikumi = { path = "../shikumi" }
+shigoto = { path = "../shigoto" }
+shigoto-types = { path = "../shigoto/shigoto-types" }
+shigoto-dag = { path = "../shigoto/shigoto-dag" }
+cofre-types = { path = "../cofre/cofre-types" }
+tameshi = { path = "../tameshi" }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1" }
+serde_yaml = { version = "0.9" }
+schemars = { version = "0.8", features = ["derive", "chrono"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "sync", "time", "fs"] }
+async-trait = { version = "0.1" }
+thiserror = { version = "2" }
+anyhow = { version = "1" }
+tracing = { version = "0.1" }
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
+chrono = { version = "0.4", features = ["serde"] }
+blake3 = { version = "1" }
+ed25519-dalek = { version = "2", features = ["rand_core"] }
+sea-orm = { version = "1.1", features = ["sqlx-sqlite", "runtime-tokio-rustls", "macros"] }
+tonic = { version = "0.12" }
+prost = { version = "0.13" }
+tonic-build = { version = "0.12" }
+prost-build = { version = "0.13" }
+async-graphql = { version = "7" }
+async-graphql-axum = { version = "7" }
+axum = { version = "0.7" }
+utoipa = { version = "5", features = ["axum_extras"] }
+utoipa-swagger-ui = { version = "8", features = ["axum"] }
+kube = { version = "0.96", features = ["derive", "runtime", "client", "rustls-tls"] }
+kube-runtime = { version = "0.96" }
+k8s-openapi = { version = "0.23", features = ["v1_30"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+url = { version = "2", features = ["serde"] }
+petgraph = { version = "0.6" }
+clap = { version = "4", features = ["derive", "env"] }
+futures = { version = "0.3" }
+proptest = { version = "1" }
+tempfile = { version = "3" }
+
+[workspace.lints]
+
+[workspace.lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+module_name_repetitions = "allow"
+
+[profile]
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "z"
+strip = true
