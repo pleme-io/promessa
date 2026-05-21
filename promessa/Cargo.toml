@@ -1,0 +1,11 @@
+[package]
+name = "promessa"
+description = "Facade re-export of the Viggy Method's typed substrate. Single entry point for consumer crates."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+promessa-types = { workspace = true }

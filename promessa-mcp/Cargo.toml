@@ -1,0 +1,14 @@
+[package]
+name = "promessa-mcp"
+description = "Stub for promessa-mcp — Viggy substrate (M1+). Pending implementation per pleme-io/theory/VIGGY-LEGOS.md."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+promessa-types = { workspace = true }
+serde = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }

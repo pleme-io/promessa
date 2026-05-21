@@ -1,0 +1,23 @@
+[package]
+name = "promessa-types"
+description = "Core typed surface for the Viggy Method — PromessaCR / TargetController trait / TypedAction enum / RemediationPolicy / Severity / PromessaTargetKind / AnomalyEmission / Snapshot / Spec / Drift / Decision."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+schemars = { workspace = true }
+thiserror = { workspace = true }
+chrono = { workspace = true }
+blake3 = { workspace = true }
+url = { workspace = true }
+uuid = { workspace = true }
+cofre-types = { workspace = true }
+
+[dev-dependencies]
+proptest = { workspace = true }
+serde_json = { workspace = true }

@@ -1,0 +1,20 @@
+[package]
+name = "promessa-cli"
+description = "CLI binary `promessa` — `promessa get/history/inspect/...` operator surface per VIGGY-AUTHORING §11.2."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[[bin]]
+name = "promessa"
+path = "src/main.rs"
+
+[dependencies]
+promessa-types = { workspace = true }
+clap = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }

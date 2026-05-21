@@ -24,10 +24,10 @@ promessa = { path = "promessa" }
 tatara-lisp = { path = "../tatara/tatara-lisp" }
 tatara-lisp-derive = { path = "../tatara/tatara-lisp-derive" }
 shikumi = { path = "../shikumi" }
-shigoto = { path = "../shigoto" }
+shigoto = { path = "../shigoto/shigoto" }
 shigoto-types = { path = "../shigoto/shigoto-types" }
 shigoto-dag = { path = "../shigoto/shigoto-dag" }
-cofre-types = { path = "../cofre/cofre-types" }
+cofre-types = { path = "../cofre/crates/cofre-types" }
 tameshi = { path = "../tameshi" }
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1" }
