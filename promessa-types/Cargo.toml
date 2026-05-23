@@ -17,6 +17,7 @@ blake3 = { workspace = true }
 url = { workspace = true }
 uuid = { workspace = true }
 cofre-types = { workspace = true }
+async-trait = { workspace = true }
 
 [dev-dependencies]
 proptest = { workspace = true }

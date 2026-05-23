@@ -34,6 +34,7 @@ pub mod authoring;
 pub mod controller;
 pub mod decision;
 pub mod kind;
+pub mod reconciler;
 pub mod severity;
 
 pub use action::{ReconcilerKind, TypedAction};
@@ -42,4 +43,5 @@ pub use authoring::{AuthoringDecision, DeferReason, PeerControllerKind, Substrat
 pub use controller::TargetController;
 pub use decision::{Decision, RemediationPolicy};
 pub use kind::PromessaTargetKind;
+pub use reconciler::{Reconciler, ReconcilerError, ReconcilerOutcome};
 pub use severity::Severity;
