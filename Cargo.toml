@@ -21,14 +21,16 @@ promessa-rest = { path = "promessa-rest" }
 promessa-mcp = { path = "promessa-mcp" }
 promessa-cli = { path = "promessa-cli" }
 promessa = { path = "promessa" }
-tatara-lisp = { path = "../tatara/tatara-lisp" }
-tatara-lisp-derive = { path = "../tatara/tatara-lisp-derive" }
-shikumi = { path = "../shikumi" }
-shigoto = { path = "../shigoto/shigoto" }
-shigoto-types = { path = "../shigoto/shigoto-types" }
-shigoto-dag = { path = "../shigoto/shigoto-dag" }
-cofre-types = { path = "../cofre/crates/cofre-types" }
-tameshi = { path = "../tameshi" }
+# pleme-io sibling deps — git so CI works without checking out
+# every sibling. Local dev: .cargo/config.toml [patch.<url>] override.
+tatara-lisp = { git = "https://github.com/pleme-io/tatara", branch = "main" }
+tatara-lisp-derive = { git = "https://github.com/pleme-io/tatara", branch = "main" }
+shikumi = { git = "https://github.com/pleme-io/shikumi", branch = "main" }
+shigoto = { git = "https://github.com/pleme-io/shigoto", branch = "main" }
+shigoto-types = { git = "https://github.com/pleme-io/shigoto", branch = "main" }
+shigoto-dag = { git = "https://github.com/pleme-io/shigoto", branch = "main" }
+cofre-types = { git = "https://github.com/pleme-io/cofre", branch = "main" }
+tameshi = { git = "https://github.com/pleme-io/tameshi", branch = "main" }
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1" }
 serde_yaml = { version = "0.9" }

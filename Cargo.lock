@@ -219,6 +219,7 @@ checksum = "c8d4a3bb8b1e0c1050499d1815f5ab16d04f0959b233085fb31653fbfc9d98f9"
 [[package]]
 name = "cofre-types"
 version = "0.1.0"
+source = "git+https://github.com/pleme-io/cofre?branch=main#6cbcb63d2ba76ca2390bd0e43cb3743d8d850df0"
 dependencies = [
  "serde",
  "serde_yaml",
