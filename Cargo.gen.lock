@@ -1,0 +1,5277 @@
+{
+  "schema_version": 1,
+  "cargo_lock_sha256": "f5bb2d0dc2510ee64359e696b444d33223d4a65f816569f82c944b8b94fcc9fc",
+  "target_resolves": {
+    "base": {
+      "aho-corasick-1.1.4": {
+        "runtime_dependencies": [
+          {
+            "name": "memchr",
+            "package_key": "memchr-2.8.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "std"
+        ]
+      },
+      "anstream-1.0.0": {
+        "runtime_dependencies": [
+          {
+            "name": "anstyle",
+            "package_key": "anstyle-1.0.14",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "anstyle_parse",
+            "package_key": "anstyle-parse-1.0.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "anstyle_query",
+            "package_key": "anstyle-query-1.1.5",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "colorchoice",
+            "package_key": "colorchoice-1.0.5",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "is_terminal_polyfill",
+            "package_key": "is_terminal_polyfill-1.70.2",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "utf8parse",
+            "package_key": "utf8parse-0.2.2",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "auto",
+          "default",
+          "wincon"
+        ]
+      },
+      "anstyle-1.0.14": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "std"
+        ]
+      },
+      "anstyle-parse-1.0.0": {
+        "runtime_dependencies": [
+          {
+            "name": "utf8parse",
+            "package_key": "utf8parse-0.2.2",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "utf8"
+        ]
+      },
+      "anstyle-query-1.1.5": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "anyhow-1.0.102": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "std"
+        ]
+      },
+      "arrayref-0.3.9": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "arrayvec-0.7.6": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "async-trait-0.1.89": {
+        "runtime_dependencies": [
+          {
+            "name": "proc_macro2",
+            "package_key": "proc-macro2-1.0.106",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "quote",
+            "package_key": "quote-1.0.45",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "syn",
+            "package_key": "syn-2.0.117",
+            "kind": "normal",
+            "features": [
+              "clone-impls",
+              "full",
+              "parsing",
+              "printing",
+              "proc-macro",
+              "visit-mut"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "autocfg-1.5.0": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "bit-set-0.8.0": {
+        "runtime_dependencies": [
+          {
+            "name": "bit_vec",
+            "package_key": "bit-vec-0.8.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "std"
+        ]
+      },
+      "bit-vec-0.8.0": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "std"
+        ]
+      },
+      "bitflags-2.11.1": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "std"
+        ]
+      },
+      "cc-1.2.62": {
+        "runtime_dependencies": [
+          {
+            "name": "find_msvc_tools",
+            "package_key": "find-msvc-tools-0.1.9",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "shlex",
+            "package_key": "shlex-1.3.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "cfg-if-1.0.4": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "chrono-0.4.44": {
+        "runtime_dependencies": [
+          {
+            "name": "iana_time_zone",
+            "package_key": "iana-time-zone-0.1.65",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": "cfg(unix)",
+            "tree": "target"
+          },
+          {
+            "name": "num_traits",
+            "package_key": "num-traits-0.2.19",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "serde",
+            "package_key": "serde-1.0.228",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "alloc",
+          "clock",
+          "default",
+          "iana-time-zone",
+          "js-sys",
+          "now",
+          "oldtime",
+          "serde",
+          "std",
+          "wasm-bindgen",
+          "wasmbind",
+          "winapi",
+          "windows-link"
+        ]
+      },
+      "clap-4.6.1": {
+        "runtime_dependencies": [
+          {
+            "name": "clap_builder",
+            "package_key": "clap_builder-4.6.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "clap_derive",
+            "package_key": "clap_derive-4.6.1",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "host"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "color",
+          "default",
+          "derive",
+          "env",
+          "error-context",
+          "help",
+          "std",
+          "suggestions",
+          "usage"
+        ]
+      },
+      "clap_builder-4.6.0": {
+        "runtime_dependencies": [
+          {
+            "name": "anstream",
+            "package_key": "anstream-1.0.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "anstyle",
+            "package_key": "anstyle-1.0.14",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "clap_lex",
+            "package_key": "clap_lex-1.1.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "strsim",
+            "package_key": "strsim-0.11.1",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "color",
+          "env",
+          "error-context",
+          "help",
+          "std",
+          "suggestions",
+          "usage"
+        ]
+      },
+      "clap_derive-4.6.1": {
+        "runtime_dependencies": [
+          {
+            "name": "heck",
+            "package_key": "heck-0.5.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "proc_macro2",
+            "package_key": "proc-macro2-1.0.106",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "quote",
+            "package_key": "quote-1.0.45",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "syn",
+            "package_key": "syn-2.0.117",
+            "kind": "normal",
+            "features": [
+              "full"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "default"
+        ]
+      },
+      "clap_lex-1.1.0": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "cofre-types-0.1.0": {
+        "runtime_dependencies": [
+          {
+            "name": "serde",
+            "package_key": "serde-1.0.228",
+            "kind": "normal",
+            "features": [
+              "derive"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "serde_yaml",
+            "package_key": "serde_yaml-0.9.34+deprecated",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "thiserror",
+            "package_key": "thiserror-2.0.18",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "colorchoice-1.0.5": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "constant_time_eq-0.4.2": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "std"
+        ]
+      },
+      "displaydoc-0.2.5": {
+        "runtime_dependencies": [
+          {
+            "name": "proc_macro2",
+            "package_key": "proc-macro2-1.0.106",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "quote",
+            "package_key": "quote-1.0.45",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "syn",
+            "package_key": "syn-2.0.117",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "dyn-clone-1.0.20": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "equivalent-1.0.2": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "errno-0.3.14": {
+        "runtime_dependencies": [
+          {
+            "name": "libc",
+            "package_key": "libc-0.2.186",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": "cfg(unix)",
+            "tree": "target"
+          },
+          {
+            "name": "libc",
+            "package_key": "libc-0.2.186",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": "cfg(target_os = \"hermit\")",
+            "tree": "target"
+          },
+          {
+            "name": "libc",
+            "package_key": "libc-0.2.186",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": "cfg(target_os = \"wasi\")",
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "std"
+        ]
+      },
+      "fastrand-2.4.1": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "alloc",
+          "default",
+          "std"
+        ]
+      },
+      "find-msvc-tools-0.1.9": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "fnv-1.0.7": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "std"
+        ]
+      },
+      "form_urlencoded-1.2.2": {
+        "runtime_dependencies": [
+          {
+            "name": "percent_encoding",
+            "package_key": "percent-encoding-2.3.2",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "alloc",
+          "std"
+        ]
+      },
+      "getrandom-0.3.4": {
+        "runtime_dependencies": [
+          {
+            "name": "cfg_if",
+            "package_key": "cfg-if-1.0.4",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "libc",
+            "package_key": "libc-0.2.186",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": "cfg(all(any(target_os = \"linux\", target_os = \"android\"), not(any(all(target_os = \"linux\", target_env = \"\"), getrandom_backend = \"custom\", getrandom_backend = \"linux_raw\", getrandom_backend = \"rdrand\", getrandom_backend = \"rndr\"))))",
+            "tree": "target"
+          },
+          {
+            "name": "libc",
+            "package_key": "libc-0.2.186",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": "cfg(any(target_os = \"dragonfly\", target_os = \"freebsd\", target_os = \"hurd\", target_os = \"illumos\", target_os = \"cygwin\", all(target_os = \"horizon\", target_arch = \"arm\")))",
+            "tree": "target"
+          },
+          {
+            "name": "libc",
+            "package_key": "libc-0.2.186",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": "cfg(any(target_os = \"haiku\", target_os = \"redox\", target_os = \"nto\", target_os = \"aix\"))",
+            "tree": "target"
+          },
+          {
+            "name": "libc",
+            "package_key": "libc-0.2.186",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": "cfg(any(target_os = \"ios\", target_os = \"visionos\", target_os = \"watchos\", target_os = \"tvos\"))",
+            "tree": "target"
+          },
+          {
+            "name": "libc",
+            "package_key": "libc-0.2.186",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": "cfg(any(target_os = \"macos\", target_os = \"openbsd\", target_os = \"vita\", target_os = \"emscripten\"))",
+            "tree": "target"
+          },
+          {
+            "name": "libc",
+            "package_key": "libc-0.2.186",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": "cfg(target_os = \"netbsd\")",
+            "tree": "target"
+          },
+          {
+            "name": "libc",
+            "package_key": "libc-0.2.186",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": "cfg(target_os = \"solaris\")",
+            "tree": "target"
+          },
+          {
+            "name": "libc",
+            "package_key": "libc-0.2.186",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": "cfg(target_os = \"vxworks\")",
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "std"
+        ]
+      },
+      "getrandom-0.4.2": {
+        "runtime_dependencies": [
+          {
+            "name": "cfg_if",
+            "package_key": "cfg-if-1.0.4",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "libc",
+            "package_key": "libc-0.2.186",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": "cfg(all(any(target_os = \"linux\", target_os = \"android\"), not(any(all(target_os = \"linux\", target_env = \"\"), getrandom_backend = \"custom\", getrandom_backend = \"linux_raw\", getrandom_backend = \"rdrand\", getrandom_backend = \"rndr\"))))",
+            "tree": "target"
+          },
+          {
+            "name": "libc",
+            "package_key": "libc-0.2.186",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": "cfg(any(target_os = \"dragonfly\", target_os = \"freebsd\", target_os = \"hurd\", target_os = \"illumos\", target_os = \"cygwin\", all(target_os = \"horizon\", target_arch = \"arm\")))",
+            "tree": "target"
+          },
+          {
+            "name": "libc",
+            "package_key": "libc-0.2.186",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": "cfg(any(target_os = \"haiku\", target_os = \"redox\", target_os = \"nto\", target_os = \"aix\"))",
+            "tree": "target"
+          },
+          {
+            "name": "libc",
+            "package_key": "libc-0.2.186",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": "cfg(any(target_os = \"ios\", target_os = \"visionos\", target_os = \"watchos\", target_os = \"tvos\"))",
+            "tree": "target"
+          },
+          {
+            "name": "libc",
+            "package_key": "libc-0.2.186",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": "cfg(any(target_os = \"macos\", target_os = \"openbsd\", target_os = \"vita\", target_os = \"emscripten\"))",
+            "tree": "target"
+          },
+          {
+            "name": "libc",
+            "package_key": "libc-0.2.186",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": "cfg(target_os = \"netbsd\")",
+            "tree": "target"
+          },
+          {
+            "name": "libc",
+            "package_key": "libc-0.2.186",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": "cfg(target_os = \"solaris\")",
+            "tree": "target"
+          },
+          {
+            "name": "libc",
+            "package_key": "libc-0.2.186",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": "cfg(target_os = \"vxworks\")",
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "hashbrown-0.17.1": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "heck-0.5.0": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "icu_collections-2.2.0": {
+        "runtime_dependencies": [
+          {
+            "name": "displaydoc",
+            "package_key": "displaydoc-0.2.5",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "host"
+          },
+          {
+            "name": "potential_utf",
+            "package_key": "potential_utf-0.1.5",
+            "kind": "normal",
+            "features": [
+              "zerovec"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "utf8_iter",
+            "package_key": "utf8_iter-1.0.4",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "yoke",
+            "package_key": "yoke-0.8.2",
+            "kind": "normal",
+            "features": [
+              "derive"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "zerofrom",
+            "package_key": "zerofrom-0.1.8",
+            "kind": "normal",
+            "features": [
+              "derive"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "zerovec",
+            "package_key": "zerovec-0.11.6",
+            "kind": "normal",
+            "features": [
+              "derive",
+              "yoke"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "icu_locale_core-2.2.0": {
+        "runtime_dependencies": [
+          {
+            "name": "displaydoc",
+            "package_key": "displaydoc-0.2.5",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "host"
+          },
+          {
+            "name": "litemap",
+            "package_key": "litemap-0.8.2",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "tinystr",
+            "package_key": "tinystr-0.8.3",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "writeable",
+            "package_key": "writeable-0.6.3",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "zerovec",
+            "package_key": "zerovec-0.11.6",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "zerovec"
+        ]
+      },
+      "icu_normalizer-2.2.0": {
+        "runtime_dependencies": [
+          {
+            "name": "icu_collections",
+            "package_key": "icu_collections-2.2.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "icu_normalizer_data",
+            "package_key": "icu_normalizer_data-2.2.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "icu_properties",
+            "package_key": "icu_properties-2.2.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "icu_provider",
+            "package_key": "icu_provider-2.2.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "smallvec",
+            "package_key": "smallvec-1.15.1",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "zerovec",
+            "package_key": "zerovec-0.11.6",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "compiled_data"
+        ]
+      },
+      "icu_normalizer_data-2.2.0": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "icu_properties-2.2.0": {
+        "runtime_dependencies": [
+          {
+            "name": "icu_collections",
+            "package_key": "icu_collections-2.2.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "icu_locale_core",
+            "package_key": "icu_locale_core-2.2.0",
+            "kind": "normal",
+            "features": [
+              "zerovec"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "icu_properties_data",
+            "package_key": "icu_properties_data-2.2.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "icu_provider",
+            "package_key": "icu_provider-2.2.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "zerotrie",
+            "package_key": "zerotrie-0.2.4",
+            "kind": "normal",
+            "features": [
+              "yoke",
+              "zerofrom"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "zerovec",
+            "package_key": "zerovec-0.11.6",
+            "kind": "normal",
+            "features": [
+              "derive",
+              "yoke"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "compiled_data"
+        ]
+      },
+      "icu_properties_data-2.2.0": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "icu_provider-2.2.0": {
+        "runtime_dependencies": [
+          {
+            "name": "displaydoc",
+            "package_key": "displaydoc-0.2.5",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "host"
+          },
+          {
+            "name": "icu_locale_core",
+            "package_key": "icu_locale_core-2.2.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "writeable",
+            "package_key": "writeable-0.6.3",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "yoke",
+            "package_key": "yoke-0.8.2",
+            "kind": "normal",
+            "features": [
+              "derive"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "zerofrom",
+            "package_key": "zerofrom-0.1.8",
+            "kind": "normal",
+            "features": [
+              "derive"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "zerotrie",
+            "package_key": "zerotrie-0.2.4",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "zerovec",
+            "package_key": "zerovec-0.11.6",
+            "kind": "normal",
+            "features": [
+              "derive"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "baked"
+        ]
+      },
+      "idna-1.1.0": {
+        "runtime_dependencies": [
+          {
+            "name": "idna_adapter",
+            "package_key": "idna_adapter-1.2.2",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "smallvec",
+            "package_key": "smallvec-1.15.1",
+            "kind": "normal",
+            "features": [
+              "const_generics"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "utf8_iter",
+            "package_key": "utf8_iter-1.0.4",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "alloc",
+          "compiled_data",
+          "std"
+        ]
+      },
+      "idna_adapter-1.2.2": {
+        "runtime_dependencies": [
+          {
+            "name": "icu_normalizer",
+            "package_key": "icu_normalizer-2.2.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "icu_properties",
+            "package_key": "icu_properties-2.2.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "compiled_data"
+        ]
+      },
+      "indexmap-2.14.0": {
+        "runtime_dependencies": [
+          {
+            "name": "equivalent",
+            "package_key": "equivalent-1.0.2",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "hashbrown",
+            "package_key": "hashbrown-0.17.1",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "serde_core",
+            "package_key": "serde_core-1.0.228",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "serde",
+          "std"
+        ]
+      },
+      "is_terminal_polyfill-1.70.2": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "default"
+        ]
+      },
+      "itoa-1.0.18": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "lazy_static-1.5.0": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "libc-0.2.186": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "std"
+        ]
+      },
+      "litemap-0.8.2": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "log-0.4.29": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "std"
+        ]
+      },
+      "matchers-0.2.0": {
+        "runtime_dependencies": [
+          {
+            "name": "regex_automata",
+            "package_key": "regex-automata-0.4.14",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "memchr-2.8.0": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "alloc",
+          "std"
+        ]
+      },
+      "nu-ansi-term-0.50.3": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "std"
+        ]
+      },
+      "num-traits-0.2.19": {
+        "runtime_dependencies": [],
+        "build_dependencies": [
+          {
+            "name": "autocfg",
+            "package_key": "autocfg-1.5.0",
+            "kind": "build",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "host"
+          }
+        ],
+        "features": [
+          "std"
+        ]
+      },
+      "once_cell-1.21.4": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "alloc",
+          "default",
+          "race",
+          "std"
+        ]
+      },
+      "percent-encoding-2.3.2": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "alloc",
+          "std"
+        ]
+      },
+      "pin-project-lite-0.2.17": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "potential_utf-0.1.5": {
+        "runtime_dependencies": [
+          {
+            "name": "zerovec",
+            "package_key": "zerovec-0.11.6",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "zerovec"
+        ]
+      },
+      "ppv-lite86-0.2.21": {
+        "runtime_dependencies": [
+          {
+            "name": "zerocopy",
+            "package_key": "zerocopy-0.8.48",
+            "kind": "normal",
+            "features": [
+              "simd"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "simd",
+          "std"
+        ]
+      },
+      "proc-macro2-1.0.106": {
+        "runtime_dependencies": [
+          {
+            "name": "unicode_ident",
+            "package_key": "unicode-ident-1.0.24",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "proc-macro"
+        ]
+      },
+      "promessa-0.1.0": {
+        "runtime_dependencies": [
+          {
+            "name": "promessa_types",
+            "package_key": "promessa-types-0.1.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "promessa-cli-0.1.0": {
+        "runtime_dependencies": [
+          {
+            "name": "anyhow",
+            "package_key": "anyhow-1.0.102",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "clap",
+            "package_key": "clap-4.6.1",
+            "kind": "normal",
+            "features": [
+              "derive",
+              "env"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "promessa_types",
+            "package_key": "promessa-types-0.1.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "serde_json",
+            "package_key": "serde_json-1.0.149",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "tracing",
+            "package_key": "tracing-0.1.44",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "tracing_subscriber",
+            "package_key": "tracing-subscriber-0.3.23",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "promessa-eval-0.1.0": {
+        "runtime_dependencies": [
+          {
+            "name": "promessa_types",
+            "package_key": "promessa-types-0.1.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "serde",
+            "package_key": "serde-1.0.228",
+            "kind": "normal",
+            "features": [
+              "derive"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "thiserror",
+            "package_key": "thiserror-2.0.18",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "tracing",
+            "package_key": "tracing-0.1.44",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "promessa-graphql-0.1.0": {
+        "runtime_dependencies": [
+          {
+            "name": "promessa_types",
+            "package_key": "promessa-types-0.1.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "serde",
+            "package_key": "serde-1.0.228",
+            "kind": "normal",
+            "features": [
+              "derive"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "thiserror",
+            "package_key": "thiserror-2.0.18",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "tracing",
+            "package_key": "tracing-0.1.44",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "promessa-mcp-0.1.0": {
+        "runtime_dependencies": [
+          {
+            "name": "promessa_types",
+            "package_key": "promessa-types-0.1.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "serde",
+            "package_key": "serde-1.0.228",
+            "kind": "normal",
+            "features": [
+              "derive"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "thiserror",
+            "package_key": "thiserror-2.0.18",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "tracing",
+            "package_key": "tracing-0.1.44",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "promessa-rest-0.1.0": {
+        "runtime_dependencies": [
+          {
+            "name": "promessa_types",
+            "package_key": "promessa-types-0.1.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "serde",
+            "package_key": "serde-1.0.228",
+            "kind": "normal",
+            "features": [
+              "derive"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "thiserror",
+            "package_key": "thiserror-2.0.18",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "tracing",
+            "package_key": "tracing-0.1.44",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "promessa-rpc-0.1.0": {
+        "runtime_dependencies": [
+          {
+            "name": "promessa_types",
+            "package_key": "promessa-types-0.1.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "serde",
+            "package_key": "serde-1.0.228",
+            "kind": "normal",
+            "features": [
+              "derive"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "thiserror",
+            "package_key": "thiserror-2.0.18",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "tracing",
+            "package_key": "tracing-0.1.44",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "promessa-runtime-0.1.0": {
+        "runtime_dependencies": [
+          {
+            "name": "promessa_types",
+            "package_key": "promessa-types-0.1.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "serde",
+            "package_key": "serde-1.0.228",
+            "kind": "normal",
+            "features": [
+              "derive"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "thiserror",
+            "package_key": "thiserror-2.0.18",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "tracing",
+            "package_key": "tracing-0.1.44",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "promessa-store-0.1.0": {
+        "runtime_dependencies": [
+          {
+            "name": "promessa_types",
+            "package_key": "promessa-types-0.1.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "serde",
+            "package_key": "serde-1.0.228",
+            "kind": "normal",
+            "features": [
+              "derive"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "thiserror",
+            "package_key": "thiserror-2.0.18",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "tracing",
+            "package_key": "tracing-0.1.44",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "promessa-types-0.1.0": {
+        "runtime_dependencies": [
+          {
+            "name": "async_trait",
+            "package_key": "async-trait-0.1.89",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "host"
+          },
+          {
+            "name": "blake3",
+            "package_key": "blake3-1.8.5",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "chrono",
+            "package_key": "chrono-0.4.44",
+            "kind": "normal",
+            "features": [
+              "serde"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "cofre_types",
+            "package_key": "cofre-types-0.1.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "schemars",
+            "package_key": "schemars-0.8.22",
+            "kind": "normal",
+            "features": [
+              "derive",
+              "chrono"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "serde",
+            "package_key": "serde-1.0.228",
+            "kind": "normal",
+            "features": [
+              "derive"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "serde_json",
+            "package_key": "serde_json-1.0.149",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "thiserror",
+            "package_key": "thiserror-2.0.18",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "url",
+            "package_key": "url-2.5.8",
+            "kind": "normal",
+            "features": [
+              "serde"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "uuid",
+            "package_key": "uuid-1.23.1",
+            "kind": "normal",
+            "features": [
+              "v4",
+              "serde"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "proptest-1.11.0": {
+        "runtime_dependencies": [
+          {
+            "name": "bit_set",
+            "package_key": "bit-set-0.8.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "bit_vec",
+            "package_key": "bit-vec-0.8.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "bitflags",
+            "package_key": "bitflags-2.11.1",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "num_traits",
+            "package_key": "num-traits-0.2.19",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "rand",
+            "package_key": "rand-0.9.4",
+            "kind": "normal",
+            "features": [
+              "alloc"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "rand_chacha",
+            "package_key": "rand_chacha-0.9.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "rand_xorshift",
+            "package_key": "rand_xorshift-0.4.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "regex_syntax",
+            "package_key": "regex-syntax-0.8.10",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "rusty_fork",
+            "package_key": "rusty-fork-0.3.1",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "tempfile",
+            "package_key": "tempfile-3.27.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "unarray",
+            "package_key": "unarray-0.1.4",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "bit-set",
+          "default",
+          "fork",
+          "regex-syntax",
+          "rusty-fork",
+          "std",
+          "tempfile",
+          "timeout"
+        ]
+      },
+      "quick-error-1.2.3": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "quote-1.0.45": {
+        "runtime_dependencies": [
+          {
+            "name": "proc_macro2",
+            "package_key": "proc-macro2-1.0.106",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "proc-macro"
+        ]
+      },
+      "rand-0.9.4": {
+        "runtime_dependencies": [
+          {
+            "name": "rand_chacha",
+            "package_key": "rand_chacha-0.9.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "rand_core",
+            "package_key": "rand_core-0.9.5",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "alloc",
+          "os_rng",
+          "std"
+        ]
+      },
+      "rand_chacha-0.9.0": {
+        "runtime_dependencies": [
+          {
+            "name": "ppv_lite86",
+            "package_key": "ppv-lite86-0.2.21",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "rand_core",
+            "package_key": "rand_core-0.9.5",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "std"
+        ]
+      },
+      "rand_core-0.9.5": {
+        "runtime_dependencies": [
+          {
+            "name": "getrandom",
+            "package_key": "getrandom-0.3.4",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "os_rng",
+          "std"
+        ]
+      },
+      "rand_xorshift-0.4.0": {
+        "runtime_dependencies": [
+          {
+            "name": "rand_core",
+            "package_key": "rand_core-0.9.5",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "regex-automata-0.4.14": {
+        "runtime_dependencies": [
+          {
+            "name": "aho_corasick",
+            "package_key": "aho-corasick-1.1.4",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "memchr",
+            "package_key": "memchr-2.8.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "regex_syntax",
+            "package_key": "regex-syntax-0.8.10",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "alloc",
+          "dfa-build",
+          "dfa-search",
+          "nfa-thompson",
+          "std",
+          "syntax"
+        ]
+      },
+      "regex-syntax-0.8.10": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "std",
+          "unicode",
+          "unicode-age",
+          "unicode-bool",
+          "unicode-case",
+          "unicode-gencat",
+          "unicode-perl",
+          "unicode-script",
+          "unicode-segment"
+        ]
+      },
+      "rusty-fork-0.3.1": {
+        "runtime_dependencies": [
+          {
+            "name": "fnv",
+            "package_key": "fnv-1.0.7",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "quick_error",
+            "package_key": "quick-error-1.2.3",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "tempfile",
+            "package_key": "tempfile-3.27.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "wait_timeout",
+            "package_key": "wait-timeout-0.2.1",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "timeout",
+          "wait-timeout"
+        ]
+      },
+      "ryu-1.0.23": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "schemars-0.8.22": {
+        "runtime_dependencies": [
+          {
+            "name": "chrono",
+            "package_key": "chrono-0.4.44",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "dyn_clone",
+            "package_key": "dyn-clone-1.0.20",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "schemars_derive",
+            "package_key": "schemars_derive-0.8.22",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "host"
+          },
+          {
+            "name": "serde",
+            "package_key": "serde-1.0.228",
+            "kind": "normal",
+            "features": [
+              "derive"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "serde_json",
+            "package_key": "serde_json-1.0.149",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "chrono",
+          "default",
+          "derive",
+          "schemars_derive"
+        ]
+      },
+      "schemars_derive-0.8.22": {
+        "runtime_dependencies": [
+          {
+            "name": "proc_macro2",
+            "package_key": "proc-macro2-1.0.106",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "quote",
+            "package_key": "quote-1.0.45",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "serde_derive_internals",
+            "package_key": "serde_derive_internals-0.29.1",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "syn",
+            "package_key": "syn-2.0.117",
+            "kind": "normal",
+            "features": [
+              "extra-traits"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "serde-1.0.228": {
+        "runtime_dependencies": [
+          {
+            "name": "serde_core",
+            "package_key": "serde_core-1.0.228",
+            "kind": "normal",
+            "features": [
+              "result"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "serde_derive",
+            "package_key": "serde_derive-1.0.228",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "host"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "alloc",
+          "default",
+          "derive",
+          "serde_derive",
+          "std"
+        ]
+      },
+      "serde_core-1.0.228": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "alloc",
+          "result",
+          "std"
+        ]
+      },
+      "serde_derive-1.0.228": {
+        "runtime_dependencies": [
+          {
+            "name": "proc_macro2",
+            "package_key": "proc-macro2-1.0.106",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "quote",
+            "package_key": "quote-1.0.45",
+            "kind": "normal",
+            "features": [
+              "proc-macro"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "syn",
+            "package_key": "syn-2.0.117",
+            "kind": "normal",
+            "features": [
+              "clone-impls",
+              "derive",
+              "parsing",
+              "printing",
+              "proc-macro"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "default"
+        ]
+      },
+      "serde_derive_internals-0.29.1": {
+        "runtime_dependencies": [
+          {
+            "name": "proc_macro2",
+            "package_key": "proc-macro2-1.0.106",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "quote",
+            "package_key": "quote-1.0.45",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "syn",
+            "package_key": "syn-2.0.117",
+            "kind": "normal",
+            "features": [
+              "clone-impls",
+              "derive",
+              "parsing",
+              "printing"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "serde_json-1.0.149": {
+        "runtime_dependencies": [
+          {
+            "name": "itoa",
+            "package_key": "itoa-1.0.18",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "memchr",
+            "package_key": "memchr-2.8.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "serde_core",
+            "package_key": "serde_core-1.0.228",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "zmij",
+            "package_key": "zmij-1.0.21",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "std"
+        ]
+      },
+      "serde_yaml-0.9.34+deprecated": {
+        "runtime_dependencies": [
+          {
+            "name": "indexmap",
+            "package_key": "indexmap-2.14.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "itoa",
+            "package_key": "itoa-1.0.18",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "ryu",
+            "package_key": "ryu-1.0.23",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "serde",
+            "package_key": "serde-1.0.228",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "unsafe_libyaml",
+            "package_key": "unsafe-libyaml-0.2.11",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "sharded-slab-0.1.7": {
+        "runtime_dependencies": [
+          {
+            "name": "lazy_static",
+            "package_key": "lazy_static-1.5.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "shlex-1.3.0": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "std"
+        ]
+      },
+      "smallvec-1.15.1": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "const_generics"
+        ]
+      },
+      "stable_deref_trait-1.2.1": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "strsim-0.11.1": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "syn-2.0.117": {
+        "runtime_dependencies": [
+          {
+            "name": "proc_macro2",
+            "package_key": "proc-macro2-1.0.106",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "quote",
+            "package_key": "quote-1.0.45",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "unicode_ident",
+            "package_key": "unicode-ident-1.0.24",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "clone-impls",
+          "default",
+          "derive",
+          "extra-traits",
+          "fold",
+          "full",
+          "parsing",
+          "printing",
+          "proc-macro",
+          "visit",
+          "visit-mut"
+        ]
+      },
+      "synstructure-0.13.2": {
+        "runtime_dependencies": [
+          {
+            "name": "proc_macro2",
+            "package_key": "proc-macro2-1.0.106",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "quote",
+            "package_key": "quote-1.0.45",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "syn",
+            "package_key": "syn-2.0.117",
+            "kind": "normal",
+            "features": [
+              "derive",
+              "parsing",
+              "printing",
+              "clone-impls",
+              "visit",
+              "extra-traits"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "proc-macro"
+        ]
+      },
+      "tempfile-3.27.0": {
+        "runtime_dependencies": [
+          {
+            "name": "fastrand",
+            "package_key": "fastrand-2.4.1",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "getrandom",
+            "package_key": "getrandom-0.4.2",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": "cfg(any(unix, windows, target_os = \"wasi\"))",
+            "tree": "target"
+          },
+          {
+            "name": "once_cell",
+            "package_key": "once_cell-1.21.4",
+            "kind": "normal",
+            "features": [
+              "std"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "rustix",
+            "package_key": "rustix-1.1.4",
+            "kind": "normal",
+            "features": [
+              "fs"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": "cfg(any(unix, target_os = \"wasi\"))",
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "getrandom"
+        ]
+      },
+      "thiserror-2.0.18": {
+        "runtime_dependencies": [
+          {
+            "name": "thiserror_impl",
+            "package_key": "thiserror-impl-2.0.18",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "host"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "std"
+        ]
+      },
+      "thiserror-impl-2.0.18": {
+        "runtime_dependencies": [
+          {
+            "name": "proc_macro2",
+            "package_key": "proc-macro2-1.0.106",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "quote",
+            "package_key": "quote-1.0.45",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "syn",
+            "package_key": "syn-2.0.117",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "thread_local-1.1.9": {
+        "runtime_dependencies": [
+          {
+            "name": "cfg_if",
+            "package_key": "cfg-if-1.0.4",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "tinystr-0.8.3": {
+        "runtime_dependencies": [
+          {
+            "name": "displaydoc",
+            "package_key": "displaydoc-0.2.5",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "host"
+          },
+          {
+            "name": "zerovec",
+            "package_key": "zerovec-0.11.6",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "zerovec"
+        ]
+      },
+      "tracing-0.1.44": {
+        "runtime_dependencies": [
+          {
+            "name": "pin_project_lite",
+            "package_key": "pin-project-lite-0.2.17",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "tracing_attributes",
+            "package_key": "tracing-attributes-0.1.31",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "host"
+          },
+          {
+            "name": "tracing_core",
+            "package_key": "tracing-core-0.1.36",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "attributes",
+          "default",
+          "std",
+          "tracing-attributes"
+        ]
+      },
+      "tracing-attributes-0.1.31": {
+        "runtime_dependencies": [
+          {
+            "name": "proc_macro2",
+            "package_key": "proc-macro2-1.0.106",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "quote",
+            "package_key": "quote-1.0.45",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "syn",
+            "package_key": "syn-2.0.117",
+            "kind": "normal",
+            "features": [
+              "full",
+              "parsing",
+              "printing",
+              "visit-mut",
+              "clone-impls",
+              "extra-traits",
+              "proc-macro"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "tracing-core-0.1.36": {
+        "runtime_dependencies": [
+          {
+            "name": "once_cell",
+            "package_key": "once_cell-1.21.4",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "once_cell",
+          "std"
+        ]
+      },
+      "tracing-log-0.2.0": {
+        "runtime_dependencies": [
+          {
+            "name": "log",
+            "package_key": "log-0.4.29",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "once_cell",
+            "package_key": "once_cell-1.21.4",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "tracing_core",
+            "package_key": "tracing-core-0.1.36",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "log-tracer",
+          "std"
+        ]
+      },
+      "tracing-subscriber-0.3.23": {
+        "runtime_dependencies": [
+          {
+            "name": "matchers",
+            "package_key": "matchers-0.2.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "nu_ansi_term",
+            "package_key": "nu-ansi-term-0.50.3",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "once_cell",
+            "package_key": "once_cell-1.21.4",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "regex_automata",
+            "package_key": "regex-automata-0.4.14",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "sharded_slab",
+            "package_key": "sharded-slab-0.1.7",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "smallvec",
+            "package_key": "smallvec-1.15.1",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "thread_local",
+            "package_key": "thread_local-1.1.9",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "tracing",
+            "package_key": "tracing-0.1.44",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "tracing_core",
+            "package_key": "tracing-core-0.1.36",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "tracing_log",
+            "package_key": "tracing-log-0.2.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "alloc",
+          "ansi",
+          "default",
+          "env-filter",
+          "fmt",
+          "matchers",
+          "nu-ansi-term",
+          "once_cell",
+          "registry",
+          "sharded-slab",
+          "smallvec",
+          "std",
+          "thread_local",
+          "tracing",
+          "tracing-log"
+        ]
+      },
+      "unarray-0.1.4": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "unicode-ident-1.0.24": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "unsafe-libyaml-0.2.11": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "url-2.5.8": {
+        "runtime_dependencies": [
+          {
+            "name": "form_urlencoded",
+            "package_key": "form_urlencoded-1.2.2",
+            "kind": "normal",
+            "features": [
+              "alloc"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "idna",
+            "package_key": "idna-1.1.0",
+            "kind": "normal",
+            "features": [
+              "alloc",
+              "compiled_data"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "percent_encoding",
+            "package_key": "percent-encoding-2.3.2",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "serde",
+            "package_key": "serde-1.0.228",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "serde_derive",
+            "package_key": "serde_derive-1.0.228",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "host"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "serde",
+          "std"
+        ]
+      },
+      "utf8_iter-1.0.4": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "utf8parse-0.2.2": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "default"
+        ]
+      },
+      "uuid-1.23.1": {
+        "runtime_dependencies": [
+          {
+            "name": "getrandom",
+            "package_key": "getrandom-0.4.2",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": "cfg(not(all(target_arch = \"wasm32\", any(target_os = \"unknown\", target_os = \"none\"))))",
+            "tree": "target"
+          },
+          {
+            "name": "serde_core",
+            "package_key": "serde_core-1.0.228",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "rng",
+          "serde",
+          "std",
+          "v4"
+        ]
+      },
+      "wait-timeout-0.2.1": {
+        "runtime_dependencies": [
+          {
+            "name": "libc",
+            "package_key": "libc-0.2.186",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": "cfg(unix)",
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "writeable-0.6.3": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "yoke-0.8.2": {
+        "runtime_dependencies": [
+          {
+            "name": "stable_deref_trait",
+            "package_key": "stable_deref_trait-1.2.1",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "yoke_derive",
+            "package_key": "yoke-derive-0.8.2",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "host"
+          },
+          {
+            "name": "zerofrom",
+            "package_key": "zerofrom-0.1.8",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "derive",
+          "zerofrom"
+        ]
+      },
+      "yoke-derive-0.8.2": {
+        "runtime_dependencies": [
+          {
+            "name": "proc_macro2",
+            "package_key": "proc-macro2-1.0.106",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "quote",
+            "package_key": "quote-1.0.45",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "syn",
+            "package_key": "syn-2.0.117",
+            "kind": "normal",
+            "features": [
+              "fold"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "synstructure",
+            "package_key": "synstructure-0.13.2",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "zerocopy-0.8.48": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "simd"
+        ]
+      },
+      "zerofrom-0.1.8": {
+        "runtime_dependencies": [
+          {
+            "name": "zerofrom_derive",
+            "package_key": "zerofrom-derive-0.1.7",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "host"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "derive"
+        ]
+      },
+      "zerofrom-derive-0.1.7": {
+        "runtime_dependencies": [
+          {
+            "name": "proc_macro2",
+            "package_key": "proc-macro2-1.0.106",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "quote",
+            "package_key": "quote-1.0.45",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "syn",
+            "package_key": "syn-2.0.117",
+            "kind": "normal",
+            "features": [
+              "fold"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "synstructure",
+            "package_key": "synstructure-0.13.2",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "zerotrie-0.2.4": {
+        "runtime_dependencies": [
+          {
+            "name": "displaydoc",
+            "package_key": "displaydoc-0.2.5",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "host"
+          },
+          {
+            "name": "yoke",
+            "package_key": "yoke-0.8.2",
+            "kind": "normal",
+            "features": [
+              "derive"
+            ],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "zerofrom",
+            "package_key": "zerofrom-0.1.8",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "yoke",
+          "zerofrom"
+        ]
+      },
+      "zerovec-0.11.6": {
+        "runtime_dependencies": [
+          {
+            "name": "yoke",
+            "package_key": "yoke-0.8.2",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "zerofrom",
+            "package_key": "zerofrom-0.1.8",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "zerovec_derive",
+            "package_key": "zerovec-derive-0.11.3",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "host"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "derive",
+          "yoke"
+        ]
+      },
+      "zerovec-derive-0.11.3": {
+        "runtime_dependencies": [
+          {
+            "name": "proc_macro2",
+            "package_key": "proc-macro2-1.0.106",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "quote",
+            "package_key": "quote-1.0.45",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "syn",
+            "package_key": "syn-2.0.117",
+            "kind": "normal",
+            "features": [
+              "extra-traits"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "zmij-1.0.21": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      }
+    },
+    "targets": {
+      "aarch64-apple-darwin": {
+        "overrides": {
+          "blake3-1.8.5": {
+            "runtime_dependencies": [
+              {
+                "name": "arrayref",
+                "package_key": "arrayref-0.3.9",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "arrayvec",
+                "package_key": "arrayvec-0.7.6",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "cfg_if",
+                "package_key": "cfg-if-1.0.4",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "constant_time_eq",
+                "package_key": "constant_time_eq-0.4.2",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [
+              {
+                "name": "cc",
+                "package_key": "cc-1.2.62",
+                "kind": "build",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "host"
+              }
+            ],
+            "features": [
+              "default",
+              "std"
+            ]
+          },
+          "core-foundation-sys-0.8.7": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "default",
+              "link"
+            ]
+          },
+          "iana-time-zone-0.1.65": {
+            "runtime_dependencies": [
+              {
+                "name": "core_foundation_sys",
+                "package_key": "core-foundation-sys-0.8.7",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(target_vendor = \"apple\")",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "fallback"
+            ]
+          },
+          "rustix-1.1.4": {
+            "runtime_dependencies": [
+              {
+                "name": "bitflags",
+                "package_key": "bitflags-2.11.1",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(windows), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(windows)",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(windows), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "alloc",
+              "default",
+              "fs",
+              "std"
+            ]
+          }
+        }
+      },
+      "x86_64-apple-darwin": {
+        "overrides": {
+          "blake3-1.8.5": {
+            "runtime_dependencies": [
+              {
+                "name": "arrayref",
+                "package_key": "arrayref-0.3.9",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "arrayvec",
+                "package_key": "arrayvec-0.7.6",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "cfg_if",
+                "package_key": "cfg-if-1.0.4",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "constant_time_eq",
+                "package_key": "constant_time_eq-0.4.2",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "cpufeatures",
+                "package_key": "cpufeatures-0.3.0",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(any(target_arch = \"x86\", target_arch = \"x86_64\"))",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [
+              {
+                "name": "cc",
+                "package_key": "cc-1.2.62",
+                "kind": "build",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "host"
+              }
+            ],
+            "features": [
+              "default",
+              "std"
+            ]
+          },
+          "core-foundation-sys-0.8.7": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "default",
+              "link"
+            ]
+          },
+          "cpufeatures-0.3.0": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": []
+          },
+          "iana-time-zone-0.1.65": {
+            "runtime_dependencies": [
+              {
+                "name": "core_foundation_sys",
+                "package_key": "core-foundation-sys-0.8.7",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(target_vendor = \"apple\")",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "fallback"
+            ]
+          },
+          "rustix-1.1.4": {
+            "runtime_dependencies": [
+              {
+                "name": "bitflags",
+                "package_key": "bitflags-2.11.1",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(windows), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(windows)",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(windows), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "alloc",
+              "default",
+              "fs",
+              "std"
+            ]
+          }
+        }
+      },
+      "x86_64-unknown-linux-gnu": {
+        "overrides": {
+          "blake3-1.8.5": {
+            "runtime_dependencies": [
+              {
+                "name": "arrayref",
+                "package_key": "arrayref-0.3.9",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "arrayvec",
+                "package_key": "arrayvec-0.7.6",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "cfg_if",
+                "package_key": "cfg-if-1.0.4",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "constant_time_eq",
+                "package_key": "constant_time_eq-0.4.2",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "cpufeatures",
+                "package_key": "cpufeatures-0.3.0",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(any(target_arch = \"x86\", target_arch = \"x86_64\"))",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [
+              {
+                "name": "cc",
+                "package_key": "cc-1.2.62",
+                "kind": "build",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "host"
+              }
+            ],
+            "features": [
+              "default",
+              "std"
+            ]
+          },
+          "cpufeatures-0.3.0": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": []
+          },
+          "iana-time-zone-0.1.65": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "fallback"
+            ]
+          },
+          "linux-raw-sys-0.12.1": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "auxvec",
+              "elf",
+              "errno",
+              "general",
+              "ioctl",
+              "no_std"
+            ]
+          },
+          "rustix-1.1.4": {
+            "runtime_dependencies": [
+              {
+                "name": "bitflags",
+                "package_key": "bitflags-2.11.1",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(windows), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(windows)",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(windows), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              },
+              {
+                "name": "linux_raw_sys",
+                "package_key": "linux-raw-sys-0.12.1",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "linux_raw_sys",
+                "package_key": "linux-raw-sys-0.12.1",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(any(target_os = \"linux\", target_os = \"android\"), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "alloc",
+              "default",
+              "fs",
+              "std"
+            ]
+          }
+        }
+      },
+      "x86_64-unknown-linux-musl": {
+        "overrides": {
+          "blake3-1.8.5": {
+            "runtime_dependencies": [
+              {
+                "name": "arrayref",
+                "package_key": "arrayref-0.3.9",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "arrayvec",
+                "package_key": "arrayvec-0.7.6",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "cfg_if",
+                "package_key": "cfg-if-1.0.4",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "constant_time_eq",
+                "package_key": "constant_time_eq-0.4.2",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "cpufeatures",
+                "package_key": "cpufeatures-0.3.0",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(any(target_arch = \"x86\", target_arch = \"x86_64\"))",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [
+              {
+                "name": "cc",
+                "package_key": "cc-1.2.62",
+                "kind": "build",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "host"
+              }
+            ],
+            "features": [
+              "default",
+              "std"
+            ]
+          },
+          "cpufeatures-0.3.0": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": []
+          },
+          "iana-time-zone-0.1.65": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "fallback"
+            ]
+          },
+          "linux-raw-sys-0.12.1": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "auxvec",
+              "elf",
+              "errno",
+              "general",
+              "ioctl",
+              "no_std"
+            ]
+          },
+          "rustix-1.1.4": {
+            "runtime_dependencies": [
+              {
+                "name": "bitflags",
+                "package_key": "bitflags-2.11.1",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(windows), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(windows)",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(windows), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              },
+              {
+                "name": "linux_raw_sys",
+                "package_key": "linux-raw-sys-0.12.1",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "linux_raw_sys",
+                "package_key": "linux-raw-sys-0.12.1",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(any(target_os = \"linux\", target_os = \"android\"), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "alloc",
+              "default",
+              "fs",
+              "std"
+            ]
+          }
+        }
+      },
+      "aarch64-unknown-linux-gnu": {
+        "overrides": {
+          "blake3-1.8.5": {
+            "runtime_dependencies": [
+              {
+                "name": "arrayref",
+                "package_key": "arrayref-0.3.9",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "arrayvec",
+                "package_key": "arrayvec-0.7.6",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "cfg_if",
+                "package_key": "cfg-if-1.0.4",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "constant_time_eq",
+                "package_key": "constant_time_eq-0.4.2",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [
+              {
+                "name": "cc",
+                "package_key": "cc-1.2.62",
+                "kind": "build",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "host"
+              }
+            ],
+            "features": [
+              "default",
+              "std"
+            ]
+          },
+          "iana-time-zone-0.1.65": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "fallback"
+            ]
+          },
+          "linux-raw-sys-0.12.1": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "auxvec",
+              "elf",
+              "errno",
+              "general",
+              "ioctl",
+              "no_std"
+            ]
+          },
+          "rustix-1.1.4": {
+            "runtime_dependencies": [
+              {
+                "name": "bitflags",
+                "package_key": "bitflags-2.11.1",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(windows), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(windows)",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(windows), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              },
+              {
+                "name": "linux_raw_sys",
+                "package_key": "linux-raw-sys-0.12.1",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "linux_raw_sys",
+                "package_key": "linux-raw-sys-0.12.1",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(any(target_os = \"linux\", target_os = \"android\"), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "alloc",
+              "default",
+              "fs",
+              "std"
+            ]
+          }
+        }
+      },
+      "aarch64-unknown-linux-musl": {
+        "overrides": {
+          "blake3-1.8.5": {
+            "runtime_dependencies": [
+              {
+                "name": "arrayref",
+                "package_key": "arrayref-0.3.9",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "arrayvec",
+                "package_key": "arrayvec-0.7.6",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "cfg_if",
+                "package_key": "cfg-if-1.0.4",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "constant_time_eq",
+                "package_key": "constant_time_eq-0.4.2",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [
+              {
+                "name": "cc",
+                "package_key": "cc-1.2.62",
+                "kind": "build",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "host"
+              }
+            ],
+            "features": [
+              "default",
+              "std"
+            ]
+          },
+          "iana-time-zone-0.1.65": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "fallback"
+            ]
+          },
+          "linux-raw-sys-0.12.1": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "auxvec",
+              "elf",
+              "errno",
+              "general",
+              "ioctl",
+              "no_std"
+            ]
+          },
+          "rustix-1.1.4": {
+            "runtime_dependencies": [
+              {
+                "name": "bitflags",
+                "package_key": "bitflags-2.11.1",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(windows), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(windows)",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(windows), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              },
+              {
+                "name": "linux_raw_sys",
+                "package_key": "linux-raw-sys-0.12.1",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "linux_raw_sys",
+                "package_key": "linux-raw-sys-0.12.1",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(any(target_os = \"linux\", target_os = \"android\"), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "alloc",
+              "default",
+              "fs",
+              "std"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "per_crate": {
+    "aho-corasick-1.1.4": {
+      "edition": "2021"
+    },
+    "anstream-1.0.0": {
+      "edition": "2021"
+    },
+    "anstyle-1.0.14": {
+      "edition": "2021"
+    },
+    "anstyle-parse-1.0.0": {
+      "edition": "2021"
+    },
+    "anstyle-query-1.1.5": {
+      "edition": "2021"
+    },
+    "anyhow-1.0.102": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "arrayref-0.3.9": {
+      "edition": "2015"
+    },
+    "arrayvec-0.7.6": {
+      "edition": "2018"
+    },
+    "async-trait-0.1.89": {
+      "edition": "2021",
+      "proc_macro": true
+    },
+    "autocfg-1.5.0": {
+      "edition": "2015"
+    },
+    "bit-set-0.8.0": {
+      "edition": "2015"
+    },
+    "bit-vec-0.8.0": {
+      "edition": "2015"
+    },
+    "bitflags-2.11.1": {
+      "edition": "2021"
+    },
+    "blake3-1.8.5": {
+      "edition": "2024",
+      "build_script": "build.rs"
+    },
+    "cc-1.2.62": {
+      "edition": "2018"
+    },
+    "cfg-if-1.0.4": {
+      "edition": "2018"
+    },
+    "chrono-0.4.44": {
+      "edition": "2021"
+    },
+    "clap-4.6.1": {
+      "edition": "2024",
+      "binaries": [
+        {
+          "name": "stdio-fixture",
+          "path": "src/bin/stdio-fixture.rs"
+        }
+      ]
+    },
+    "clap_builder-4.6.0": {
+      "edition": "2024"
+    },
+    "clap_derive-4.6.1": {
+      "edition": "2024",
+      "proc_macro": true
+    },
+    "clap_lex-1.1.0": {
+      "edition": "2024"
+    },
+    "cofre-types-0.1.0": {
+      "edition": "2024"
+    },
+    "colorchoice-1.0.5": {
+      "edition": "2021"
+    },
+    "constant_time_eq-0.4.2": {
+      "edition": "2024"
+    },
+    "core-foundation-sys-0.8.7": {
+      "edition": "2018"
+    },
+    "displaydoc-0.2.5": {
+      "edition": "2021",
+      "proc_macro": true
+    },
+    "dyn-clone-1.0.20": {
+      "edition": "2018"
+    },
+    "equivalent-1.0.2": {
+      "edition": "2015"
+    },
+    "errno-0.3.14": {
+      "edition": "2018"
+    },
+    "fastrand-2.4.1": {
+      "edition": "2018"
+    },
+    "find-msvc-tools-0.1.9": {
+      "edition": "2018"
+    },
+    "fnv-1.0.7": {
+      "edition": "2015",
+      "lib_target": {
+        "name": "fnv",
+        "path": "lib.rs"
+      }
+    },
+    "form_urlencoded-1.2.2": {
+      "edition": "2018"
+    },
+    "getrandom-0.3.4": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "getrandom-0.4.2": {
+      "edition": "2024",
+      "build_script": "build.rs"
+    },
+    "hashbrown-0.17.1": {
+      "edition": "2024"
+    },
+    "heck-0.5.0": {
+      "edition": "2021"
+    },
+    "iana-time-zone-0.1.65": {
+      "edition": "2021"
+    },
+    "icu_collections-2.2.0": {
+      "edition": "2021"
+    },
+    "icu_locale_core-2.2.0": {
+      "edition": "2021"
+    },
+    "icu_normalizer-2.2.0": {
+      "edition": "2021"
+    },
+    "icu_normalizer_data-2.2.0": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "icu_properties-2.2.0": {
+      "edition": "2021"
+    },
+    "icu_properties_data-2.2.0": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "icu_provider-2.2.0": {
+      "edition": "2021"
+    },
+    "idna-1.1.0": {
+      "edition": "2018"
+    },
+    "idna_adapter-1.2.2": {
+      "edition": "2024"
+    },
+    "indexmap-2.14.0": {
+      "edition": "2024"
+    },
+    "is_terminal_polyfill-1.70.2": {
+      "edition": "2021"
+    },
+    "itoa-1.0.18": {
+      "edition": "2021"
+    },
+    "lazy_static-1.5.0": {
+      "edition": "2015"
+    },
+    "libc-0.2.186": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "litemap-0.8.2": {
+      "edition": "2021"
+    },
+    "log-0.4.29": {
+      "edition": "2021"
+    },
+    "matchers-0.2.0": {
+      "edition": "2018"
+    },
+    "memchr-2.8.0": {
+      "edition": "2021"
+    },
+    "nu-ansi-term-0.50.3": {
+      "edition": "2021"
+    },
+    "num-traits-0.2.19": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "once_cell-1.21.4": {
+      "edition": "2021"
+    },
+    "percent-encoding-2.3.2": {
+      "edition": "2018"
+    },
+    "pin-project-lite-0.2.17": {
+      "edition": "2018"
+    },
+    "potential_utf-0.1.5": {
+      "edition": "2021"
+    },
+    "ppv-lite86-0.2.21": {
+      "edition": "2021"
+    },
+    "proc-macro2-1.0.106": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "promessa-0.1.0": {
+      "edition": "2024",
+      "lib_target": {
+        "name": "promessa",
+        "path": "src/lib.rs"
+      }
+    },
+    "promessa-cli-0.1.0": {
+      "edition": "2024",
+      "binaries": [
+        {
+          "name": "promessa",
+          "path": "src/main.rs"
+        }
+      ]
+    },
+    "promessa-eval-0.1.0": {
+      "edition": "2024",
+      "lib_target": {
+        "name": "promessa_eval",
+        "path": "src/lib.rs"
+      }
+    },
+    "promessa-graphql-0.1.0": {
+      "edition": "2024",
+      "lib_target": {
+        "name": "promessa_graphql",
+        "path": "src/lib.rs"
+      }
+    },
+    "promessa-mcp-0.1.0": {
+      "edition": "2024",
+      "lib_target": {
+        "name": "promessa_mcp",
+        "path": "src/lib.rs"
+      }
+    },
+    "promessa-rest-0.1.0": {
+      "edition": "2024",
+      "lib_target": {
+        "name": "promessa_rest",
+        "path": "src/lib.rs"
+      }
+    },
+    "promessa-rpc-0.1.0": {
+      "edition": "2024",
+      "lib_target": {
+        "name": "promessa_rpc",
+        "path": "src/lib.rs"
+      }
+    },
+    "promessa-runtime-0.1.0": {
+      "edition": "2024",
+      "lib_target": {
+        "name": "promessa_runtime",
+        "path": "src/lib.rs"
+      }
+    },
+    "promessa-store-0.1.0": {
+      "edition": "2024",
+      "lib_target": {
+        "name": "promessa_store",
+        "path": "src/lib.rs"
+      }
+    },
+    "promessa-types-0.1.0": {
+      "edition": "2024",
+      "lib_target": {
+        "name": "promessa_types",
+        "path": "src/lib.rs"
+      }
+    },
+    "proptest-1.11.0": {
+      "edition": "2021"
+    },
+    "quick-error-1.2.3": {
+      "edition": "2015"
+    },
+    "quote-1.0.45": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "rand-0.9.4": {
+      "edition": "2021"
+    },
+    "rand_chacha-0.9.0": {
+      "edition": "2021"
+    },
+    "rand_core-0.9.5": {
+      "edition": "2021"
+    },
+    "rand_xorshift-0.4.0": {
+      "edition": "2021"
+    },
+    "regex-automata-0.4.14": {
+      "edition": "2021"
+    },
+    "regex-syntax-0.8.10": {
+      "edition": "2021"
+    },
+    "rustix-1.1.4": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "rusty-fork-0.3.1": {
+      "edition": "2018"
+    },
+    "ryu-1.0.23": {
+      "edition": "2021"
+    },
+    "schemars-0.8.22": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "schemars_derive-0.8.22": {
+      "edition": "2021",
+      "proc_macro": true
+    },
+    "serde-1.0.228": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "serde_core-1.0.228": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "serde_derive-1.0.228": {
+      "edition": "2021",
+      "proc_macro": true
+    },
+    "serde_derive_internals-0.29.1": {
+      "edition": "2015",
+      "lib_target": {
+        "name": "serde_derive_internals",
+        "path": "lib.rs"
+      }
+    },
+    "serde_json-1.0.149": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "serde_yaml-0.9.34+deprecated": {
+      "edition": "2021"
+    },
+    "sharded-slab-0.1.7": {
+      "edition": "2018"
+    },
+    "shlex-1.3.0": {
+      "edition": "2015"
+    },
+    "smallvec-1.15.1": {
+      "edition": "2018"
+    },
+    "stable_deref_trait-1.2.1": {
+      "edition": "2015"
+    },
+    "strsim-0.11.1": {
+      "edition": "2015"
+    },
+    "syn-2.0.117": {
+      "edition": "2021"
+    },
+    "synstructure-0.13.2": {
+      "edition": "2018"
+    },
+    "tempfile-3.27.0": {
+      "edition": "2021"
+    },
+    "thiserror-2.0.18": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "thiserror-impl-2.0.18": {
+      "edition": "2021",
+      "proc_macro": true
+    },
+    "thread_local-1.1.9": {
+      "edition": "2021"
+    },
+    "tinystr-0.8.3": {
+      "edition": "2021"
+    },
+    "tracing-0.1.44": {
+      "edition": "2018"
+    },
+    "tracing-attributes-0.1.31": {
+      "edition": "2018",
+      "proc_macro": true
+    },
+    "tracing-core-0.1.36": {
+      "edition": "2018"
+    },
+    "tracing-log-0.2.0": {
+      "edition": "2018"
+    },
+    "tracing-subscriber-0.3.23": {
+      "edition": "2018"
+    },
+    "unarray-0.1.4": {
+      "edition": "2018"
+    },
+    "unicode-ident-1.0.24": {
+      "edition": "2021"
+    },
+    "unsafe-libyaml-0.2.11": {
+      "edition": "2021",
+      "binaries": [
+        {
+          "name": "run-emitter-test-suite",
+          "path": "src/bin/run-emitter-test-suite.rs"
+        },
+        {
+          "name": "run-parser-test-suite",
+          "path": "src/bin/run-parser-test-suite.rs"
+        }
+      ]
+    },
+    "url-2.5.8": {
+      "edition": "2018"
+    },
+    "utf8_iter-1.0.4": {
+      "edition": "2021"
+    },
+    "utf8parse-0.2.2": {
+      "edition": "2018"
+    },
+    "uuid-1.23.1": {
+      "edition": "2021"
+    },
+    "wait-timeout-0.2.1": {
+      "edition": "2015",
+      "binaries": [
+        {
+          "name": "exit",
+          "path": "src/bin/exit.rs"
+        },
+        {
+          "name": "reader",
+          "path": "src/bin/reader.rs"
+        },
+        {
+          "name": "sleep",
+          "path": "src/bin/sleep.rs"
+        }
+      ]
+    },
+    "writeable-0.6.3": {
+      "edition": "2021"
+    },
+    "yoke-0.8.2": {
+      "edition": "2021"
+    },
+    "yoke-derive-0.8.2": {
+      "edition": "2021",
+      "proc_macro": true
+    },
+    "zerocopy-0.8.48": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "zerofrom-0.1.8": {
+      "edition": "2021"
+    },
+    "zerofrom-derive-0.1.7": {
+      "edition": "2021",
+      "proc_macro": true
+    },
+    "zerotrie-0.2.4": {
+      "edition": "2021"
+    },
+    "zerovec-0.11.6": {
+      "edition": "2021"
+    },
+    "zerovec-derive-0.11.3": {
+      "edition": "2021",
+      "proc_macro": true
+    },
+    "zmij-1.0.21": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "cpufeatures-0.3.0": {
+      "edition": "2024"
+    },
+    "linux-raw-sys-0.12.1": {
+      "edition": "2021"
+    }
+  },
+  "git_nar_sha256": {
+    "cofre-types-0.1.0": "sha256-3bE+cSEfs328gY95lN/UW1XXNnfvZNTupSRd0kyJziQ="
+  },
+  "flake_metadata": {}
+}
