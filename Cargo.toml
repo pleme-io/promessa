@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["promessa-types", "promessa-store", "promessa-eval", "promessa-runtime", "promessa-rpc", "promessa-graphql", "promessa-rest", "promessa-mcp", "promessa-cli", "promessa"]
+members = ["promessa-types", "promessa-store", "promessa-eval", "promessa-runtime", "promessa-rpc", "promessa-graphql", "promessa-rest", "promessa-mcp", "promessa-cli", "promessa", "camelot-posture-controller"]
 
 [workspace.package]
 version = "0.1.0"
@@ -21,6 +21,7 @@ promessa-rest = { path = "promessa-rest" }
 promessa-mcp = { path = "promessa-mcp" }
 promessa-cli = { path = "promessa-cli" }
 promessa = { path = "promessa" }
+camelot-posture-controller = { path = "camelot-posture-controller" }
 # pleme-io sibling deps — git so CI works without checking out
 # every sibling. Local dev: .cargo/config.toml [patch.<url>] override.
 tatara-lisp = { git = "https://github.com/pleme-io/tatara", branch = "main" }
