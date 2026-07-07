@@ -1,0 +1,76 @@
+# prumo — the tick-by-tick DELIVERY-CHAIN OPTIMIZER.
+#
+# The continuous optimizer that composes lapidar (the accept-if-improved-else-
+# revert tick self-tuner) + the camelot-posture PromessaController (the landed
+# seven-beat) into ONE loop optimizing every delivery-chain axis each tick,
+# converging to the cost+performance optimum.
+#
+# *prumo* (Brazilian-Portuguese: the plumb line / plumb bob) — the craft tool
+# that continuously finds and holds TRUE (the optimum) and self-corrects when
+# perturbed: a move that does not improve is let to settle back (revert). It is
+# the plumb line for the delivery chain: every tick it re-finds true (the
+# cost+perf optimum) across every axis, and a perturbation that regresses is
+# reverted, never shipped. Sibling of lapidar (gem-cutting self-tune); prumo
+# sits ABOVE it and drives the WHOLE chain.
+#
+# Standalone workspace root (like breathe-invariant + breathe-auction) so it
+# composes the substrate BY REFERENCE (doctrine_ref) without coupling to the
+# in-flight churn of the crates it optimizes: lapidar lives in
+# sui/sui-supercacheci (memory::evaluate_tune), the posture seven-beat in
+# promessa/camelot-posture-controller (TargetController), the config-spread in
+# breathe/crates/breathe-auction (arch × spot × ladder × perf × placement ×
+# interruption), the RUN bands in breathe + breathe-invariant, the BUILD axes in
+# super-cache-ci + breathe-catalog::builder. The concrete sealed algorithms stay
+# where they live; prumo names the axes + wraps each in lapidar's accept-if-
+# improved-else-revert + routes structure UP to the posture + resolves cost-
+# conflicts by cost + attests, tier-honest, never rounded up.
+#
+# Follow-up: fold into the promessa workspace members (or add its own
+# auto-release.yml) once the concurrent controller work lands, so the matrix
+# runs in promessa CI + ships via AUTO-RELEASE (same follow-up breathe-invariant
+# + breathe-auction carry).
+[package]
+name = "prumo"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.89"
+license = "MIT"
+authors = ["drzzln <drzzln@protonmail.com>"]
+repository = "https://github.com/pleme-io/promessa"
+description = "The tick-by-tick delivery-chain optimizer — composes lapidar (accept-if-improved-else-revert) + the camelot-posture seven-beat into ONE loop that drives every axis of BUILD → CACHE → TRANSFER → DEPLOY → RUN to the cost+performance optimum each tick. Each axis is a sealed typed classical/SOTA algorithm (NO ML) wrapped in lapidar's shadow-first accept-if-improved; cost-conflicts resolve by COST with an inline rationale that is loud where the intuitive choice loses; the honesty gate (tier-ladder + never-round-up) is FIXED, not tunable. The self-describing axis catalog + verification MATRIX make an ML axis, an over-claimed tier, a non-improving accept, and a regressing tick CI-caught."
+
+[lib]
+name = "prumo"
+path = "src/lib.rs"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[dev-dependencies]
+proptest = "1"
+
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+module_name_repetitions = "allow"
+missing_errors_doc = "allow"
+missing_panics_doc = "allow"
+# Doc/style allows for a doc-heavy composition-index crate that intentionally
+# names dozens of fleet primitives in prose + keeps a 1-variant-per-arm classifier
+# for exhaustive clarity. Correctness-relevant pedantic lints stay enforced.
+doc_markdown = "allow"
+match_same_arms = "allow"
+doc_lazy_continuation = "allow"
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "z"
+strip = true
+
+# Own workspace root — NOT a member of the parent promessa workspace (whose
+# members are an explicit list, not a glob). Declaring [workspace] here makes
+# cargo treat this crate as its own root, so building it never touches the
+# parent's in-flight controller crates (same isolation as
+# breathe/crates/breathe-invariant + breathe/crates/breathe-auction).
+[workspace]
