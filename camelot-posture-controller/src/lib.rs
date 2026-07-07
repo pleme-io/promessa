@@ -22,6 +22,15 @@
 //! - **no leak in ANY dimension** (memory / cpu / storage / persistence / volume
 //!   / straggler + placement / idle-node / orphan-cost) — composes the autorevivy
 //!   leak-guard [`MaintenanceJob`]s by typed reference, never re-implementing them.
+//! - **every critical workload is SEALED from interference** — the isolation
+//!   invariant (breathe's `IsolationBand` seal dimension). A critical /
+//!   interference-sensitive workload observed at BestEffort / no-requests (the
+//!   victoria-logs-422 class) is an [`PostureViolation::IsolationSealBroken`];
+//!   observed noisy-neighbor contention (throttle / eviction pressure) is an
+//!   [`PostureViolation::InterferenceDetected`]. The seal-broken ROOT CAUSE
+//!   (raise the requests-floor) composes breathe's isolation seal-carve guard by
+//!   tag; re-placement is disruptive and human-gated. The carve is bounded so it
+//!   never strips the seal (breathe `carve_respecting_seal` / `SealedCarve`).
 //! - **no errors** — the service-auction side is stability-first: errors are
 //!   surfaced, never blind-remediated.
 //!
@@ -160,6 +169,12 @@ pub struct CamelotPostureSpec {
     pub forbid_leaks: BTreeSet<LeakClass>,
     /// Never-stuck — no wedged node / pool.
     pub require_never_stuck: bool,
+    /// Every critical / interference-sensitive workload must be SEALED — a
+    /// guaranteed requests-floor + a non-BestEffort QoS (breathe's `IsolationBand`
+    /// seal dimension). When set, an unsealed critical workload or observed
+    /// noisy-neighbor interference is a posture violation. This is the isolation
+    /// invariant enforced tick-by-tick, not a one-time config.
+    pub require_isolation_seal: bool,
     /// Shadow-first: enforcement observes-would-act before acting. Under this,
     /// Functional violations are surfaced + attested (Alert), not auto-corrected;
     /// only safety-critical composed-guard dispatches fire (and they are
@@ -201,6 +216,7 @@ impl CamelotPostureSpec {
             .into_iter()
             .collect(),
             require_never_stuck: true,
+            require_isolation_seal: true,
             shadow_first: true,
         }
     }
@@ -227,6 +243,14 @@ pub struct CamelotPostureSnapshot {
     pub observed_leaks: BTreeSet<LeakClass>,
     /// Over-provisioned volumes (breathe `ProvisionVerdict::OverProvisioned`).
     pub over_provisioned_volumes: Vec<OverProvisionedVolume>,
+    /// Critical / interference-sensitive workloads observed WITHOUT a seal
+    /// (BestEffort QoS or a zero requests-floor) — the victoria-logs-422 class.
+    /// Empty under a held isolation invariant.
+    pub unsealed_critical_workloads: Vec<String>,
+    /// Workloads observed suffering interference (noisy-neighbor contention:
+    /// CPU-throttle ratio / eviction pressure above threshold). The seal-broken
+    /// case's runtime symptom; re-placement is the (disruptive, human-gated) fix.
+    pub interfered_workloads: Vec<String>,
     /// Service-auction / reconcile errors observed (stability-first surface).
     pub error_count: u32,
 }
@@ -251,6 +275,16 @@ pub enum PostureViolation {
     LeakDetected { class: LeakClass },
     /// An over-provisioned volume — reclaimable storage waste.
     OverProvisioned { pvc: String, waste_bytes: u64, regenerable: bool },
+    /// A critical / interference-sensitive workload with NO seal (BestEffort /
+    /// no-requests) — the victoria-logs-422 ROOT CAUSE. The correction (raise the
+    /// requests-floor) composes breathe's isolation seal-carve guard by tag,
+    /// shadow-first. Distinct from `NeverStuckViolated` (the SYMPTOM): a stuck
+    /// workload trips never-stuck; the missing seal is why it stuck.
+    IsolationSealBroken { workloads: Vec<String> },
+    /// Noisy-neighbor interference observed on a workload (throttle / eviction
+    /// pressure) — the seal-broken symptom. The fix (re-place with anti-affinity /
+    /// isolate-away) is DISRUPTIVE, so it is human-gated, never auto-fired.
+    InterferenceDetected { workloads: Vec<String> },
     /// Service-auction / reconcile errors — surfaced, never blind-remediated.
     ErrorsObserved { count: u32 },
 }
@@ -280,6 +314,8 @@ impl PostureViolation {
             | Self::ScaleToZeroStuck { .. }
             | Self::LeakDetected { .. }
             | Self::OverProvisioned { .. }
+            | Self::IsolationSealBroken { .. }
+            | Self::InterferenceDetected { .. }
             | Self::ErrorsObserved { .. } => Severity::Functional,
             // A placement preference, not a breach.
             Self::NotArm { .. } => Severity::Cosmetic,
@@ -317,6 +353,23 @@ impl PostureViolation {
                 },
             ),
             Self::OverProvisioned { regenerable: false, .. } => Remediation::AlertOnly,
+            // The isolation SEAL is broken (a critical workload lost its floor) —
+            // the ROOT-CAUSE fix is to raise the requests-floor, a breathe
+            // isolation seal-carve. Dispatched to breathe's guard by tag
+            // (shadow-first AT the guard); a raised floor is a bounded carve that
+            // never strips the seal (breathe `SealedCarve`), so it is safe to
+            // auto-dispatch in live mode + surface under shadow-first.
+            Self::IsolationSealBroken { workloads } => Remediation::Auto(dispatch_guard(
+                "isolation_seal_carve",
+                serde_json::json!({ "cluster": cluster, "workloads": workloads }),
+            )),
+            // Observed interference: the fix is RE-PLACEMENT (anti-affinity /
+            // isolate-away) — a spec change that reschedules pods, DISRUPTIVE, so
+            // it is human-gated, never auto-fired (the no-errors discipline).
+            Self::InterferenceDetected { workloads } => Remediation::Approval(TypedAction::FluxCommit {
+                path: format!("k8s/clusters/{cluster}/apps"),
+                patch: serde_json::json!({ "isolateAwayWithAntiAffinity": workloads }),
+            }),
             // breathe is the carver; the posture observes + attests. Placement +
             // errors are surfaced, never blind-mutated.
             Self::BandOffSetpoint { .. } | Self::NotArm { .. } | Self::ErrorsObserved { .. } => {
@@ -421,6 +474,21 @@ impl TargetController for CamelotPostureController {
                 regenerable: v.regenerable,
             });
         }
+        // isolation — the SEAL invariant (breathe's IsolationBand seal dimension).
+        // A critical workload without a seal is the ROOT CAUSE (raise the floor);
+        // observed interference is the symptom (re-place, human-gated).
+        if spec.require_isolation_seal {
+            if !snapshot.unsealed_critical_workloads.is_empty() {
+                violations.push(PostureViolation::IsolationSealBroken {
+                    workloads: snapshot.unsealed_critical_workloads.clone(),
+                });
+            }
+            if !snapshot.interfered_workloads.is_empty() {
+                violations.push(PostureViolation::InterferenceDetected {
+                    workloads: snapshot.interfered_workloads.clone(),
+                });
+            }
+        }
         // errors — stability-first surface.
         if snapshot.error_count > 0 {
             violations.push(PostureViolation::ErrorsObserved { count: snapshot.error_count });
@@ -505,6 +573,8 @@ mod tests {
             stuck_units: vec![],
             observed_leaks: BTreeSet::new(),
             over_provisioned_volumes: vec![],
+            unsealed_critical_workloads: vec![],
+            interfered_workloads: vec![],
             error_count: 0,
         }
     }
@@ -657,7 +727,61 @@ mod tests {
         assert_eq!(spec.carved_dimensions.len(), 4);
         assert_eq!(spec.forbid_leaks.len(), 9, "every leak class forbidden");
         assert!(spec.require_100pct_spot && spec.require_arm && spec.require_scale_to_zero && spec.require_never_stuck);
+        assert!(spec.require_isolation_seal, "the isolation seal invariant is armed by default");
         assert!(spec.shadow_first, "shadow-first is the default");
+    }
+
+    #[test]
+    fn an_unsealed_critical_workload_dispatches_the_seal_carve_in_live_mode() {
+        // THE isolation invariant, reactive: a critical workload observed without
+        // a seal (BestEffort / no-requests — the victoria-logs-422 ROOT CAUSE) is
+        // corrected by raising the requests-floor (breathe's isolation seal-carve),
+        // Functional + composed-guard. Surfaced under shadow-first; auto in live.
+        let c = CamelotPostureController;
+        let mut s = snap("camelot");
+        s.unsealed_critical_workloads = vec!["victoria-logs".into()];
+        // Shadow-first (default): surfaced + attested, not blind-fired.
+        let shadow = CamelotPostureSpec::full("camelot");
+        let drift = c.diff(&shadow, &s);
+        assert_eq!(drift.violations.len(), 1);
+        assert_eq!(c.classify(&drift), Severity::Functional);
+        assert_eq!(c.decide(&shadow, c.classify(&drift), &drift), Decision::Alert);
+        // Live mode: the seal-carve auto-dispatches (a bounded carve — never
+        // strips the seal), the root-cause correction for the stuck class.
+        let live = CamelotPostureSpec { shadow_first: false, ..CamelotPostureSpec::full("camelot") };
+        match c.decide(&live, c.classify(&drift), &drift) {
+            Decision::AutoCorrect(TypedAction::ReconcilerApply { spec, .. }) => {
+                assert_eq!(spec["guard"], "isolation_seal_carve", "dispatches breathe's seal-carve by tag");
+            }
+            other => panic!("live mode must auto-dispatch the seal-carve, got {other:?}"),
+        }
+    }
+
+    #[test]
+    fn observed_interference_is_human_gated_never_auto_replaced() {
+        // Re-placement (anti-affinity / isolate-away) reschedules pods — DISRUPTIVE
+        // — so an observed-interference remediation is always human-gated, never
+        // auto-fired, even in live mode (the no-errors discipline).
+        let c = CamelotPostureController;
+        let mut s = snap("camelot");
+        s.interfered_workloads = vec!["noisy-batch".into()];
+        let live = CamelotPostureSpec { shadow_first: false, ..CamelotPostureSpec::full("camelot") };
+        let drift = c.diff(&live, &s);
+        match c.decide(&live, c.classify(&drift), &drift) {
+            Decision::RequireApproval(_) => {}
+            other => panic!("a re-placement must be human-gated, got {other:?}"),
+        }
+    }
+
+    #[test]
+    fn isolation_seal_is_not_enforced_when_the_invariant_is_disarmed() {
+        // require_isolation_seal is the gate: with it off, an unsealed critical is
+        // not a posture violation (a repo that opts out via its own spec).
+        let c = CamelotPostureController;
+        let mut s = snap("camelot");
+        s.unsealed_critical_workloads = vec!["x".into()];
+        let disarmed = CamelotPostureSpec { require_isolation_seal: false, ..CamelotPostureSpec::full("camelot") };
+        assert!(c.diff(&disarmed, &s).violations.is_empty(), "disarmed isolation invariant emits no violation");
     }
 
     #[test]
@@ -697,6 +821,8 @@ mod proptests {
                 stuck_units: vec![],
                 observed_leaks: BTreeSet::new(),
                 over_provisioned_volumes: vec![],
+                unsealed_critical_workloads: vec![],
+                interfered_workloads: vec![],
                 error_count: errors,
             };
             if off_cpu { s.off_band_dimensions.insert(BandDimension::Cpu); }
@@ -727,6 +853,8 @@ mod proptests {
                 stuck_units: vec![],
                 observed_leaks: BTreeSet::new(),
                 over_provisioned_volumes: vec![],
+                unsealed_critical_workloads: vec![],
+                interfered_workloads: vec![],
                 error_count: 0,
             };
             if regen_waste > 0 {
