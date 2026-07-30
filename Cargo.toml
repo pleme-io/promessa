@@ -24,8 +24,10 @@ promessa = { path = "promessa" }
 camelot-posture-controller = { path = "camelot-posture-controller" }
 # pleme-io sibling deps — git so CI works without checking out
 # every sibling. Local dev: .cargo/config.toml [patch.<url>] override.
-tatara-lisp = { git = "https://github.com/pleme-io/tatara", branch = "main" }
-tatara-lisp-derive = { git = "https://github.com/pleme-io/tatara", branch = "main" }
+# tatara-lisp is a published crates.io crate — the derive macros are re-exported
+# from the lib (as DeriveTataraDomain / DeriveKeywordSexp), so a consumer must
+# NOT name tatara-lisp-derive itself.
+tatara-lisp = { version = "0.3.3" }
 shikumi = { git = "https://github.com/pleme-io/shikumi", branch = "main" }
 shigoto = { git = "https://github.com/pleme-io/shigoto", branch = "main" }
 shigoto-types = { git = "https://github.com/pleme-io/shigoto", branch = "main" }
