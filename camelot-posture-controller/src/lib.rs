@@ -222,9 +222,81 @@ impl CamelotPostureSpec {
     }
 }
 
+/// One predicate of the posture — an index over the invariant switches on
+/// [`CamelotPostureSpec`], so a snapshot can say WHICH part of the posture it
+/// failed to observe. Not a new taxonomy: each variant names an existing spec
+/// field, and its only job is to make blindness attributable.
+#[derive(Serialize, Deserialize, Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[serde(rename_all = "kebab-case")]
+pub enum PosturePredicate {
+    /// The carved dimensions are at their setpoint (`carved_dimensions`).
+    Bands,
+    /// 100% spot (`require_100pct_spot`).
+    Spot,
+    /// arm default (`require_arm`).
+    Arm,
+    /// Build pools + idle → 0 (`require_scale_to_zero`).
+    ScaleToZero,
+    /// No wedged node / pool (`require_never_stuck`).
+    NeverStuck,
+    /// No leak in any forbidden class (`forbid_leaks`).
+    Leaks,
+    /// No over-provisioned volume (the storage-waste surface).
+    Storage,
+    /// Every critical workload sealed (`require_isolation_seal`).
+    IsolationSeal,
+    /// The service-auction / reconcile error surface.
+    Errors,
+}
+
+impl PosturePredicate {
+    /// Every predicate, in declaration order.
+    pub const ALL: [PosturePredicate; 9] = [
+        Self::Bands,
+        Self::Spot,
+        Self::Arm,
+        Self::ScaleToZero,
+        Self::NeverStuck,
+        Self::Leaks,
+        Self::Storage,
+        Self::IsolationSeal,
+        Self::Errors,
+    ];
+
+    /// The stable label.
+    #[must_use]
+    pub const fn as_str(self) -> &'static str {
+        match self {
+            Self::Bands => "bands",
+            Self::Spot => "spot",
+            Self::Arm => "arm",
+            Self::ScaleToZero => "scale-to-zero",
+            Self::NeverStuck => "never-stuck",
+            Self::Leaks => "leaks",
+            Self::Storage => "storage",
+            Self::IsolationSeal => "isolation-seal",
+            Self::Errors => "errors",
+        }
+    }
+}
+
 /// The OBSERVED posture — what the reconcile runtime's `observe` beat projects
 /// the running cluster into (breathe MCP band phases, node capacity types, leak
 /// observations, over-provisioned volumes). Pure data.
+///
+/// ## Why `blind` had to be added
+///
+/// Every other field on this struct uses an EMPTY collection to mean "none
+/// observed" — and an empty collection is produced identically by "I looked and
+/// there are none" and by "I could not look". On a cluster with no
+/// kube-state-metrics, no node-exporter and no alerting, that collapse is the
+/// exact mechanism by which this controller would classify a posture `Cosmetic`
+/// while blind. `blind` is the presence-anchor (TENDRIL §II.9): it names the
+/// predicates the observe beat could NOT evaluate this tick, so
+/// [`CamelotPostureController::verdict`] can refuse to attest a posture it did
+/// not actually see. `#[serde(default)]` keeps older payloads deserializable —
+/// though note that an old payload therefore decodes as "nothing blind", which
+/// is only sound because those payloads predate any blindness-aware producer.
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct CamelotPostureSnapshot {
     pub cluster: String,
@@ -253,6 +325,11 @@ pub struct CamelotPostureSnapshot {
     pub interfered_workloads: Vec<String>,
     /// Service-auction / reconcile errors observed (stability-first surface).
     pub error_count: u32,
+    /// Predicates the observe beat could NOT evaluate this tick. A non-empty set
+    /// means every "clean" field above is a LOWER BOUND, not a clean bill of
+    /// health — see the type docs.
+    #[serde(default)]
+    pub blind: BTreeSet<PosturePredicate>,
 }
 
 /// A single typed posture violation. The whole `diff` is the set of these; each
@@ -261,7 +338,28 @@ pub struct CamelotPostureSnapshot {
 #[serde(tag = "violation", rename_all = "kebab-case")]
 pub enum PostureViolation {
     /// A carved dimension is off its setpoint band — breathe is the carver; the
-    /// posture surfaces + attests (breathe converges it on its own loop).
+    /// posture surfaces + attests.
+    ///
+    /// **FALSIFIED 2026-08-01 — this variant used to justify its `AlertOnly`
+    /// routing with "breathe converges it on its own loop". That deference is no
+    /// longer sound and must not be re-asserted.** Observed on live camelot:
+    /// `camelot/mysql-cpu` carries `postureRef: critical-stateful`, whose tuple
+    /// is `shrinkBelow: 0.0` (never shrink) and `growFactor: 1.5`, and it still
+    /// emitted `shadow: 1000 -> 900` shrink proposals at `util 0.005` and
+    /// `1000 -> 1250` grow proposals — a `1.25x` step, which is the superseded
+    /// `platform-default` factor, not its declared one. So the band's EFFECTIVE
+    /// policy is not its DECLARED policy, and "breathe will converge it" is an
+    /// assumption about a loop that is running different numbers than the ones
+    /// authored.
+    ///
+    /// The routing below is UNCHANGED — surfacing remains correct, and blind
+    /// auto-correction would be worse. What changed is the justification: the
+    /// posture now surfaces because remediation here is a judgement call, NOT
+    /// because breathe is trusted to converge. The independent detector for the
+    /// underlying defect is `sarar::selfobs::classify_policy_resolution`
+    /// (`IssueKind::PolicyResolutionDivergence`), which compares a band's
+    /// observed proposals against what its declared tier could possibly emit,
+    /// and which rests on no authored YAML being correct.
     BandOffSetpoint { dimension: BandDimension },
     /// On-demand nodes present — the 100%-spot hard law is broken (Critical).
     OnDemandDetected { nodes: Vec<String> },
@@ -412,10 +510,79 @@ impl CamelotPostureDrift {
     }
 }
 
+/// The result of a tick that knows whether it could SEE what it is claiming.
+///
+/// `classify` alone answers "how bad is what I found", which silently assumes
+/// the observe beat found everything there was. This type separates that from
+/// "did I actually look", so the two can never be conflated by a caller. A
+/// `Degraded` verdict's severity is a LOWER BOUND — the real posture can only be
+/// worse than what a partial read reported.
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
+#[serde(tag = "verdict", rename_all = "kebab-case")]
+pub enum PostureVerdict {
+    /// Every predicate was observed; the severity is the whole truth.
+    Attested { severity: Severity },
+    /// One or more predicates could not be observed. The severity is a floor,
+    /// and [`PostureVerdict::holds`] is `false` no matter how clean it looks.
+    Degraded { severity: Severity, blind: BTreeSet<PosturePredicate> },
+}
+
+impl PostureVerdict {
+    /// Whether the posture is AFFIRMATIVELY held. `true` requires both a clean
+    /// classification and a complete observation — a degraded read never
+    /// qualifies, however quiet it looks. This is the one predicate that keeps
+    /// "we saw nothing wrong" from being reported as "nothing is wrong".
+    #[must_use]
+    pub fn holds(&self) -> bool {
+        matches!(self, Self::Attested { severity: Severity::Cosmetic })
+    }
+
+    /// The classified severity — a lower bound when [`Self::Degraded`].
+    #[must_use]
+    pub const fn severity(&self) -> Severity {
+        match self {
+            Self::Attested { severity } | Self::Degraded { severity, .. } => *severity,
+        }
+    }
+
+    /// The predicates that could not be observed.
+    #[must_use]
+    pub fn blind(&self) -> &BTreeSet<PosturePredicate> {
+        static EMPTY: std::sync::OnceLock<BTreeSet<PosturePredicate>> = std::sync::OnceLock::new();
+        match self {
+            Self::Attested { .. } => EMPTY.get_or_init(BTreeSet::new),
+            Self::Degraded { blind, .. } => blind,
+        }
+    }
+}
+
 /// The camelot-posture controller — the tick-by-tick enforcement of the whole
 /// posture as one typed invariant set.
 #[derive(Debug, Clone, Copy, Default)]
 pub struct CamelotPostureController;
+
+impl CamelotPostureController {
+    /// Beat 3', the presence-anchored classify: pair the classified severity
+    /// with whether the observe beat could actually see the whole posture.
+    ///
+    /// Callers that need "is the posture held?" must ask
+    /// [`PostureVerdict::holds`] rather than comparing `classify` to
+    /// `Cosmetic` — the latter reports a blind tick as healthy, which is the
+    /// exact failure this pairing exists to prevent.
+    #[must_use]
+    pub fn verdict(
+        &self,
+        spec: &CamelotPostureSpec,
+        snapshot: &CamelotPostureSnapshot,
+    ) -> PostureVerdict {
+        let severity = self.classify(&self.diff(spec, snapshot));
+        if snapshot.blind.is_empty() {
+            PostureVerdict::Attested { severity }
+        } else {
+            PostureVerdict::Degraded { severity, blind: snapshot.blind.clone() }
+        }
+    }
+}
 
 impl TargetController for CamelotPostureController {
     type Spec = CamelotPostureSpec;
@@ -576,6 +743,7 @@ mod tests {
             unsealed_critical_workloads: vec![],
             interfered_workloads: vec![],
             error_count: 0,
+            blind: BTreeSet::new(),
         }
     }
 
@@ -784,6 +952,52 @@ mod tests {
         assert!(c.diff(&disarmed, &s).violations.is_empty(), "disarmed isolation invariant emits no violation");
     }
 
+    /// THE presence-anchor: a tick that found NOTHING wrong but could not
+    /// observe part of the posture must not report the posture as held. Before
+    /// `blind` existed this snapshot was byte-identical to a genuinely clean one,
+    /// which is precisely how a blind loop reports health.
+    #[test]
+    fn a_blind_tick_never_reports_the_posture_as_held() {
+        let c = CamelotPostureController;
+        let spec = CamelotPostureSpec::full("camelot");
+        let mut s = snap("camelot");
+        // Nothing observed wrong — because the band dimension was unreadable.
+        s.blind.insert(PosturePredicate::Bands);
+        let drift = c.diff(&spec, &s);
+        assert!(drift.violations.is_empty(), "a blind read finds no violations");
+        assert_eq!(c.classify(&drift), Severity::Cosmetic, "and classifies clean");
+        let verdict = c.verdict(&spec, &s);
+        assert!(!verdict.holds(), "a blind tick must not claim the posture holds");
+        assert_eq!(verdict.severity(), Severity::Cosmetic, "the severity is a LOWER BOUND");
+        assert!(verdict.blind().contains(&PosturePredicate::Bands));
+    }
+
+    /// The complementary direction — a complete, clean read DOES attest.
+    #[test]
+    fn a_complete_clean_tick_attests() {
+        let c = CamelotPostureController;
+        let spec = CamelotPostureSpec::full("camelot");
+        let verdict = c.verdict(&spec, &snap("camelot"));
+        assert!(verdict.holds());
+        assert_eq!(verdict, PostureVerdict::Attested { severity: Severity::Cosmetic });
+        assert!(verdict.blind().is_empty());
+    }
+
+    /// A degraded read that ALSO found a violation keeps both facts: the
+    /// severity is real and the coverage is still incomplete.
+    #[test]
+    fn a_degraded_tick_keeps_both_the_severity_and_the_blindness() {
+        let c = CamelotPostureController;
+        let spec = CamelotPostureSpec::full("camelot");
+        let mut s = snap("camelot");
+        s.on_demand_nodes = vec!["ip-10-0-1-9".into()];
+        s.blind.insert(PosturePredicate::IsolationSeal);
+        let verdict = c.verdict(&spec, &s);
+        assert_eq!(verdict.severity(), Severity::Critical);
+        assert!(!verdict.holds());
+        assert_eq!(verdict.blind().len(), 1);
+    }
+
     #[test]
     fn spec_and_snapshot_round_trip_through_serde() {
         let spec = CamelotPostureSpec::full("camelot");
@@ -824,6 +1038,7 @@ mod proptests {
                 unsealed_critical_workloads: vec![],
                 interfered_workloads: vec![],
                 error_count: errors,
+                blind: BTreeSet::new(),
             };
             if off_cpu { s.off_band_dimensions.insert(BandDimension::Cpu); }
             if leak_placement { s.observed_leaks.insert(LeakClass::Placement); }
@@ -856,6 +1071,7 @@ mod proptests {
                 unsealed_critical_workloads: vec![],
                 interfered_workloads: vec![],
                 error_count: 0,
+                blind: BTreeSet::new(),
             };
             if regen_waste > 0 {
                 s.over_provisioned_volumes.push(OverProvisionedVolume { pvc: "r".into(), waste_bytes: regen_waste, regenerable: true });
