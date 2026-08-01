@@ -8,7 +8,9 @@ use serde::{Deserialize, Serialize};
 /// `classify_monotonic` trait law is property-tested for every
 /// [`crate::TargetController`] — strictly larger drift produces
 /// at-least-as-severe Severity.
-#[derive(Serialize, Deserialize, JsonSchema, Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(
+    Serialize, Deserialize, JsonSchema, Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash,
+)]
 #[serde(rename_all = "kebab-case")]
 pub enum Severity {
     /// Within healthy operating bounds. No action required.

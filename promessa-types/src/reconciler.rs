@@ -152,14 +152,17 @@ mod tests {
 
     #[test]
     fn flag_gated_is_terminal_success() {
-        let o: ReconcilerOutcome<DummyReceipt> =
-            ReconcilerOutcome::FlagGated { flag: "gameWardenForwarding".into() };
+        let o: ReconcilerOutcome<DummyReceipt> = ReconcilerOutcome::FlagGated {
+            flag: "gameWardenForwarding".into(),
+        };
         assert!(o.is_terminal_success());
     }
 
     #[test]
     fn applied_is_terminal_success() {
-        let o = ReconcilerOutcome::Applied { receipt: DummyReceipt { ok: true } };
+        let o = ReconcilerOutcome::Applied {
+            receipt: DummyReceipt { ok: true },
+        };
         assert!(o.is_terminal_success());
     }
 
@@ -172,7 +175,9 @@ mod tests {
     #[test]
     fn failed_is_not_terminal_success() {
         let o: ReconcilerOutcome<DummyReceipt> = ReconcilerOutcome::Failed {
-            error: ReconcilerError::Transient { detail: "test".into() },
+            error: ReconcilerError::Transient {
+                detail: "test".into(),
+            },
         };
         assert!(!o.is_terminal_success());
     }
@@ -187,7 +192,9 @@ mod tests {
 
     #[test]
     fn outcome_serde_roundtrip_applied() {
-        let o = ReconcilerOutcome::Applied { receipt: DummyReceipt { ok: true } };
+        let o = ReconcilerOutcome::Applied {
+            receipt: DummyReceipt { ok: true },
+        };
         let json = serde_json::to_value(&o).unwrap();
         assert_eq!(json["outcome"], "applied");
         assert_eq!(json["receipt"]["ok"], true);
@@ -195,8 +202,9 @@ mod tests {
 
     #[test]
     fn outcome_serde_roundtrip_flag_gated() {
-        let o: ReconcilerOutcome<DummyReceipt> =
-            ReconcilerOutcome::FlagGated { flag: "gameWardenForwarding".into() };
+        let o: ReconcilerOutcome<DummyReceipt> = ReconcilerOutcome::FlagGated {
+            flag: "gameWardenForwarding".into(),
+        };
         let json = serde_json::to_value(&o).unwrap();
         assert_eq!(json["outcome"], "flag-gated");
         assert_eq!(json["flag"], "gameWardenForwarding");

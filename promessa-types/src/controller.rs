@@ -4,7 +4,7 @@
 
 use std::fmt::Debug;
 
-use serde::{de::DeserializeOwned, Serialize};
+use serde::{Serialize, de::DeserializeOwned};
 
 use crate::action::TypedAction;
 use crate::decision::Decision;

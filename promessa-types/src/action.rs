@@ -15,11 +15,17 @@ pub enum TypedAction {
     /// `GithubRepoReconciler` + FluxCD source/kustomize/helm
     /// controllers. The default action (per VIGGY-AUTHORING §5
     /// GITOPS-NATIVE directive).
-    FluxCommit { path: String, patch: serde_json::Value },
+    FluxCommit {
+        path: String,
+        patch: serde_json::Value,
+    },
 
     /// Apply via one of the catalogued Reconciler kinds. ~30 LoC + thin
     /// chart per kind per CONVERGENCE-SUBSTRATE §III.2.
-    ReconcilerApply { reconciler: ReconcilerKind, spec: serde_json::Value },
+    ReconcilerApply {
+        reconciler: ReconcilerKind,
+        spec: serde_json::Value,
+    },
 
     /// Apply a Pangea-declared cloud resource via magma.
     MagmaApply { workspace: String, plan_id: String },
@@ -28,10 +34,16 @@ pub enum TypedAction {
     CofreRotate { secret_ref: String },
 
     /// Patch a saguao crachá AccessPolicy.
-    CrachaPatch { policy: String, patch: serde_json::Value },
+    CrachaPatch {
+        policy: String,
+        patch: serde_json::Value,
+    },
 
     /// Escape hatch — three uses force extraction of a new variant.
-    Custom { kind: String, payload: serde_json::Value },
+    Custom {
+        kind: String,
+        payload: serde_json::Value,
+    },
 
     /// Compose multiple actions via shigoto Dag — each step recorded
     /// in the OutcomeReceipt.

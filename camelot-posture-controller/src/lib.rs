@@ -372,7 +372,11 @@ pub enum PostureViolation {
     /// A leak in a forbidden dimension — dispatched to its leak-guard.
     LeakDetected { class: LeakClass },
     /// An over-provisioned volume — reclaimable storage waste.
-    OverProvisioned { pvc: String, waste_bytes: u64, regenerable: bool },
+    OverProvisioned {
+        pvc: String,
+        waste_bytes: u64,
+        regenerable: bool,
+    },
     /// A critical / interference-sensitive workload with NO seal (BestEffort /
     /// no-requests) — the victoria-logs-422 ROOT CAUSE. The correction (raise the
     /// requests-floor) composes breathe's isolation seal-carve guard by tag,
@@ -444,13 +448,17 @@ impl PostureViolation {
             // the waste — DISRUPTIVE, so always human-gated. A stateful one is
             // never recreated (surface only); the provision-minimal default
             // prevents NEW over-provisioning going forward.
-            Self::OverProvisioned { pvc, regenerable: true, .. } => Remediation::Approval(
-                TypedAction::FluxCommit {
-                    path: format!("k8s/clusters/{cluster}/apps/{pvc}"),
-                    patch: serde_json::json!({ "recreatePvcAtProvisionMinimal": pvc }),
-                },
-            ),
-            Self::OverProvisioned { regenerable: false, .. } => Remediation::AlertOnly,
+            Self::OverProvisioned {
+                pvc,
+                regenerable: true,
+                ..
+            } => Remediation::Approval(TypedAction::FluxCommit {
+                path: format!("k8s/clusters/{cluster}/apps/{pvc}"),
+                patch: serde_json::json!({ "recreatePvcAtProvisionMinimal": pvc }),
+            }),
+            Self::OverProvisioned {
+                regenerable: false, ..
+            } => Remediation::AlertOnly,
             // The isolation SEAL is broken (a critical workload lost its floor) —
             // the ROOT-CAUSE fix is to raise the requests-floor, a breathe
             // isolation seal-carve. Dispatched to breathe's guard by tag
@@ -464,10 +472,12 @@ impl PostureViolation {
             // Observed interference: the fix is RE-PLACEMENT (anti-affinity /
             // isolate-away) — a spec change that reschedules pods, DISRUPTIVE, so
             // it is human-gated, never auto-fired (the no-errors discipline).
-            Self::InterferenceDetected { workloads } => Remediation::Approval(TypedAction::FluxCommit {
-                path: format!("k8s/clusters/{cluster}/apps"),
-                patch: serde_json::json!({ "isolateAwayWithAntiAffinity": workloads }),
-            }),
+            Self::InterferenceDetected { workloads } => {
+                Remediation::Approval(TypedAction::FluxCommit {
+                    path: format!("k8s/clusters/{cluster}/apps"),
+                    patch: serde_json::json!({ "isolateAwayWithAntiAffinity": workloads }),
+                })
+            }
             // breathe is the carver; the posture observes + attests. Placement +
             // errors are surfaced, never blind-mutated.
             Self::BandOffSetpoint { .. } | Self::NotArm { .. } | Self::ErrorsObserved { .. } => {
@@ -483,9 +493,15 @@ impl PostureViolation {
 fn dispatch_guard(tag: &str, spec: serde_json::Value) -> TypedAction {
     let mut spec = spec;
     if let serde_json::Value::Object(map) = &mut spec {
-        map.insert("guard".to_string(), serde_json::Value::String(tag.to_string()));
+        map.insert(
+            "guard".to_string(),
+            serde_json::Value::String(tag.to_string()),
+        );
     }
-    TypedAction::ReconcilerApply { reconciler: ReconcilerKind::K8sNative, spec }
+    TypedAction::ReconcilerApply {
+        reconciler: ReconcilerKind::K8sNative,
+        spec,
+    }
 }
 
 /// The typed drift — the set of posture violations this tick. Empty ⇒ the whole
@@ -524,7 +540,10 @@ pub enum PostureVerdict {
     Attested { severity: Severity },
     /// One or more predicates could not be observed. The severity is a floor,
     /// and [`PostureVerdict::holds`] is `false` no matter how clean it looks.
-    Degraded { severity: Severity, blind: BTreeSet<PosturePredicate> },
+    Degraded {
+        severity: Severity,
+        blind: BTreeSet<PosturePredicate>,
+    },
 }
 
 impl PostureVerdict {
@@ -534,7 +553,12 @@ impl PostureVerdict {
     /// "we saw nothing wrong" from being reported as "nothing is wrong".
     #[must_use]
     pub fn holds(&self) -> bool {
-        matches!(self, Self::Attested { severity: Severity::Cosmetic })
+        matches!(
+            self,
+            Self::Attested {
+                severity: Severity::Cosmetic
+            }
+        )
     }
 
     /// The classified severity — a lower bound when [`Self::Degraded`].
@@ -579,7 +603,10 @@ impl CamelotPostureController {
         if snapshot.blind.is_empty() {
             PostureVerdict::Attested { severity }
         } else {
-            PostureVerdict::Degraded { severity, blind: snapshot.blind.clone() }
+            PostureVerdict::Degraded {
+                severity,
+                blind: snapshot.blind.clone(),
+            }
         }
     }
 }
@@ -613,7 +640,9 @@ impl TargetController for CamelotPostureController {
         }
         // arm default.
         if spec.require_arm && !snapshot.non_arm_nodes.is_empty() {
-            violations.push(PostureViolation::NotArm { nodes: snapshot.non_arm_nodes.clone() });
+            violations.push(PostureViolation::NotArm {
+                nodes: snapshot.non_arm_nodes.clone(),
+            });
         }
         // scale-to-zero.
         if spec.require_scale_to_zero && !snapshot.scale_to_zero_stuck.is_empty() {
@@ -658,7 +687,9 @@ impl TargetController for CamelotPostureController {
         }
         // errors — stability-first surface.
         if snapshot.error_count > 0 {
-            violations.push(PostureViolation::ErrorsObserved { count: snapshot.error_count });
+            violations.push(PostureViolation::ErrorsObserved {
+                count: snapshot.error_count,
+            });
         }
 
         CamelotPostureDrift { violations }
@@ -667,7 +698,12 @@ impl TargetController for CamelotPostureController {
     /// Beat 3 — classify the drift into a severity tier. Monotone: the max over
     /// the violation set, so a superset of violations is at-least-as-severe.
     fn classify(&self, drift: &Self::Drift) -> Severity {
-        drift.violations.iter().map(PostureViolation::severity).max().unwrap_or(Severity::Cosmetic)
+        drift
+            .violations
+            .iter()
+            .map(PostureViolation::severity)
+            .max()
+            .unwrap_or(Severity::Cosmetic)
     }
 
     /// Beat 4 — decide the shadow-first action. NO blind remediation: a disruptive
@@ -757,9 +793,15 @@ mod tests {
         let c = CamelotPostureController;
         let spec = CamelotPostureSpec::full("camelot");
         let drift = c.diff(&spec, &snap("camelot"));
-        assert!(drift.violations.is_empty(), "a clean cluster has no violations");
+        assert!(
+            drift.violations.is_empty(),
+            "a clean cluster has no violations"
+        );
         assert_eq!(c.classify(&drift), Severity::Cosmetic);
-        assert_eq!(c.decide(&spec, Severity::Cosmetic, &drift), Decision::NoAction);
+        assert_eq!(
+            c.decide(&spec, Severity::Cosmetic, &drift),
+            Decision::NoAction
+        );
     }
 
     #[test]
@@ -769,7 +811,11 @@ mod tests {
         let mut s = snap("camelot");
         s.on_demand_nodes = vec!["ip-10-0-1-9".into()];
         let drift = c.diff(&spec, &s);
-        assert_eq!(c.classify(&drift), Severity::Critical, "on-demand breaks the 100%-spot hard law");
+        assert_eq!(
+            c.classify(&drift),
+            Severity::Critical,
+            "on-demand breaks the 100%-spot hard law"
+        );
         // Even under shadow-first, the safety-critical spot-reacquisition dispatches.
         match c.decide(&spec, Severity::Critical, &drift) {
             Decision::AutoCorrect(_) => {}
@@ -787,7 +833,10 @@ mod tests {
         assert_eq!(c.classify(&drift), Severity::Critical);
         match c.decide(&spec, Severity::Critical, &drift) {
             Decision::AutoCorrect(TypedAction::ReconcilerApply { spec, .. }) => {
-                assert_eq!(spec["guard"], "orphan_cost_reap", "dispatches the autorevivy reap by tag");
+                assert_eq!(
+                    spec["guard"], "orphan_cost_reap",
+                    "dispatches the autorevivy reap by tag"
+                );
             }
             other => panic!("orphan-cost must dispatch the reap, got {other:?}"),
         }
@@ -807,7 +856,11 @@ mod tests {
             regenerable: true,
         }];
         let drift = c.diff(&spec, &s);
-        assert_eq!(drift.total_waste_bytes(), 48 << 30, "exact reclaimable waste");
+        assert_eq!(
+            drift.total_waste_bytes(),
+            48 << 30,
+            "exact reclaimable waste"
+        );
         match c.decide(&spec, c.classify(&drift), &drift) {
             Decision::RequireApproval(_) => {}
             other => panic!("a recreate must be human-gated, never auto, got {other:?}"),
@@ -849,9 +902,15 @@ mod tests {
         // Shadow-first: a Functional composed-guard dispatch is surfaced, not fired.
         let shadow = CamelotPostureSpec::full("camelot");
         let drift = c.diff(&shadow, &s);
-        assert_eq!(c.decide(&shadow, c.classify(&drift), &drift), Decision::Alert);
+        assert_eq!(
+            c.decide(&shadow, c.classify(&drift), &drift),
+            Decision::Alert
+        );
         // Live mode: the same Functional dispatch auto-fires.
-        let live = CamelotPostureSpec { shadow_first: false, ..CamelotPostureSpec::full("camelot") };
+        let live = CamelotPostureSpec {
+            shadow_first: false,
+            ..CamelotPostureSpec::full("camelot")
+        };
         match c.decide(&live, c.classify(&drift), &drift) {
             Decision::AutoCorrect(TypedAction::ReconcilerApply { spec, .. }) => {
                 assert_eq!(spec["guard"], "placement_leak_guard");
@@ -884,18 +943,32 @@ mod tests {
         let functional = c.classify(&c.diff(&spec, &s));
         s.on_demand_nodes = vec!["n1".into()]; // + Critical
         let with_critical = c.classify(&c.diff(&spec, &s));
-        assert!(with_critical >= functional, "adding a violation cannot lower severity");
+        assert!(
+            with_critical >= functional,
+            "adding a violation cannot lower severity"
+        );
         assert_eq!(with_critical, Severity::Critical);
     }
 
     #[test]
     fn the_full_posture_arms_every_dimension_and_leak_class() {
         let spec = CamelotPostureSpec::full("camelot");
-        assert!(spec.carved_dimensions.contains(&BandDimension::Storage), "storage is a first-class carved dimension");
+        assert!(
+            spec.carved_dimensions.contains(&BandDimension::Storage),
+            "storage is a first-class carved dimension"
+        );
         assert_eq!(spec.carved_dimensions.len(), 4);
         assert_eq!(spec.forbid_leaks.len(), 9, "every leak class forbidden");
-        assert!(spec.require_100pct_spot && spec.require_arm && spec.require_scale_to_zero && spec.require_never_stuck);
-        assert!(spec.require_isolation_seal, "the isolation seal invariant is armed by default");
+        assert!(
+            spec.require_100pct_spot
+                && spec.require_arm
+                && spec.require_scale_to_zero
+                && spec.require_never_stuck
+        );
+        assert!(
+            spec.require_isolation_seal,
+            "the isolation seal invariant is armed by default"
+        );
         assert!(spec.shadow_first, "shadow-first is the default");
     }
 
@@ -913,13 +986,22 @@ mod tests {
         let drift = c.diff(&shadow, &s);
         assert_eq!(drift.violations.len(), 1);
         assert_eq!(c.classify(&drift), Severity::Functional);
-        assert_eq!(c.decide(&shadow, c.classify(&drift), &drift), Decision::Alert);
+        assert_eq!(
+            c.decide(&shadow, c.classify(&drift), &drift),
+            Decision::Alert
+        );
         // Live mode: the seal-carve auto-dispatches (a bounded carve — never
         // strips the seal), the root-cause correction for the stuck class.
-        let live = CamelotPostureSpec { shadow_first: false, ..CamelotPostureSpec::full("camelot") };
+        let live = CamelotPostureSpec {
+            shadow_first: false,
+            ..CamelotPostureSpec::full("camelot")
+        };
         match c.decide(&live, c.classify(&drift), &drift) {
             Decision::AutoCorrect(TypedAction::ReconcilerApply { spec, .. }) => {
-                assert_eq!(spec["guard"], "isolation_seal_carve", "dispatches breathe's seal-carve by tag");
+                assert_eq!(
+                    spec["guard"], "isolation_seal_carve",
+                    "dispatches breathe's seal-carve by tag"
+                );
             }
             other => panic!("live mode must auto-dispatch the seal-carve, got {other:?}"),
         }
@@ -933,7 +1015,10 @@ mod tests {
         let c = CamelotPostureController;
         let mut s = snap("camelot");
         s.interfered_workloads = vec!["noisy-batch".into()];
-        let live = CamelotPostureSpec { shadow_first: false, ..CamelotPostureSpec::full("camelot") };
+        let live = CamelotPostureSpec {
+            shadow_first: false,
+            ..CamelotPostureSpec::full("camelot")
+        };
         let drift = c.diff(&live, &s);
         match c.decide(&live, c.classify(&drift), &drift) {
             Decision::RequireApproval(_) => {}
@@ -948,8 +1033,14 @@ mod tests {
         let c = CamelotPostureController;
         let mut s = snap("camelot");
         s.unsealed_critical_workloads = vec!["x".into()];
-        let disarmed = CamelotPostureSpec { require_isolation_seal: false, ..CamelotPostureSpec::full("camelot") };
-        assert!(c.diff(&disarmed, &s).violations.is_empty(), "disarmed isolation invariant emits no violation");
+        let disarmed = CamelotPostureSpec {
+            require_isolation_seal: false,
+            ..CamelotPostureSpec::full("camelot")
+        };
+        assert!(
+            c.diff(&disarmed, &s).violations.is_empty(),
+            "disarmed isolation invariant emits no violation"
+        );
     }
 
     /// THE presence-anchor: a tick that found NOTHING wrong but could not
@@ -964,11 +1055,25 @@ mod tests {
         // Nothing observed wrong — because the band dimension was unreadable.
         s.blind.insert(PosturePredicate::Bands);
         let drift = c.diff(&spec, &s);
-        assert!(drift.violations.is_empty(), "a blind read finds no violations");
-        assert_eq!(c.classify(&drift), Severity::Cosmetic, "and classifies clean");
+        assert!(
+            drift.violations.is_empty(),
+            "a blind read finds no violations"
+        );
+        assert_eq!(
+            c.classify(&drift),
+            Severity::Cosmetic,
+            "and classifies clean"
+        );
         let verdict = c.verdict(&spec, &s);
-        assert!(!verdict.holds(), "a blind tick must not claim the posture holds");
-        assert_eq!(verdict.severity(), Severity::Cosmetic, "the severity is a LOWER BOUND");
+        assert!(
+            !verdict.holds(),
+            "a blind tick must not claim the posture holds"
+        );
+        assert_eq!(
+            verdict.severity(),
+            Severity::Cosmetic,
+            "the severity is a LOWER BOUND"
+        );
         assert!(verdict.blind().contains(&PosturePredicate::Bands));
     }
 
@@ -979,7 +1084,12 @@ mod tests {
         let spec = CamelotPostureSpec::full("camelot");
         let verdict = c.verdict(&spec, &snap("camelot"));
         assert!(verdict.holds());
-        assert_eq!(verdict, PostureVerdict::Attested { severity: Severity::Cosmetic });
+        assert_eq!(
+            verdict,
+            PostureVerdict::Attested {
+                severity: Severity::Cosmetic
+            }
+        );
         assert!(verdict.blind().is_empty());
     }
 
