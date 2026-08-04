@@ -229,8 +229,9 @@ checksum = "c8d4a3bb8b1e0c1050499d1815f5ab16d04f0959b233085fb31653fbfc9d98f9"
 
 [[package]]
 name = "cofre-types"
-version = "0.1.0"
-source = "git+https://github.com/pleme-io/cofre?branch=main#ffe3b764f7b1a24757cb2425ce69e01669301dc5"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cfba701f1ccb538042bc8d3e139817074b4c7fbb6ea4e1a75d0cccdc97757639"
 dependencies = [
  "gen-platform",
  "gen-types",
@@ -358,8 +359,9 @@ dependencies = [
 
 [[package]]
 name = "gen-macros"
-version = "0.1.8"
-source = "git+https://github.com/pleme-io/gen#97aaf2e4ce3cfbc50d0f7377d227bda42dd4d2c6"
+version = "0.1.33"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "01a65672c144a3365d0e0c1949102eb8149ebc8bee4f702decf699f0d12e4b22"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -368,8 +370,9 @@ dependencies = [
 
 [[package]]
 name = "gen-platform"
-version = "0.1.8"
-source = "git+https://github.com/pleme-io/gen#97aaf2e4ce3cfbc50d0f7377d227bda42dd4d2c6"
+version = "0.1.33"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d6a9878a6592876a0d813f1b476e74d8b6213447d7d07876de51311aed454a00"
 dependencies = [
  "gen-macros",
  "gen-types",
@@ -381,8 +384,9 @@ dependencies = [
 
 [[package]]
 name = "gen-types"
-version = "0.1.8"
-source = "git+https://github.com/pleme-io/gen#97aaf2e4ce3cfbc50d0f7377d227bda42dd4d2c6"
+version = "0.1.33"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c45ce151777b35170110bed11f2fbe10e42a95217b83be77def5d93a97640fe4"
 dependencies = [
  "blake3",
  "chrono",

@@ -1,6 +1,20 @@
 {
-  "schema_version": 1,
-  "cargo_lock_sha256": "21e4748ab9b770edb63caa5f31ed51ac9d3003a4a25c33e2c00a5fab5b5d13df",
+  "schema_version": 2,
+  "cargo_lock_sha256": "3e1be392505b39bc67b3f6adbd5c0c74fc5c2347838e9786c26b1e60aeb7456a",
+  "manifest_sha256": {
+    "Cargo.toml": "5db9dbb08e8312b76446d8a56a77bd7abd52667a55820a34be59fe267685922c",
+    "camelot-posture-controller/Cargo.toml": "8d6d35f56b4eab2f44aacda5984938a81417711714e1c93571d03dbb47ea5f7f",
+    "promessa-cli/Cargo.toml": "f7f42f6846240e1549dc0d2d50641c2039aab671e05e5e3d6ac882fbbb2e01c8",
+    "promessa-eval/Cargo.toml": "483316e1d1288ee7bd72f0db7f5d77212199a240ea19c9f502737b1a786cac29",
+    "promessa-graphql/Cargo.toml": "7cbd8bd818b6c0331dcda154ab457adec25e17221e91e34b069330c4eb9f486f",
+    "promessa-mcp/Cargo.toml": "a33042f49f11fec2ee8e6611e4be899078eee94ef5c22984a284539b9839a4f3",
+    "promessa-rest/Cargo.toml": "a040f63d27302eb924b0c02168df621891e1e16ad226a49ab7d818f39095b189",
+    "promessa-rpc/Cargo.toml": "b8c72ce699699872fd4b1a63414912ea3b5f39fc2b063c3dd1b02d0339f4f97e",
+    "promessa-runtime/Cargo.toml": "28f08a63863541744914b1fb90ee945138df7eece054e87808b30ab8e839d8e1",
+    "promessa-store/Cargo.toml": "a6bccb34c111c0e4346049e729cabff03f6513b67a33e8a13fc6445802c41401",
+    "promessa-types/Cargo.toml": "6d1e83b18a7cedd1f10c68091a5c9f981a62aa635770666a08cd6d77758a7bb1",
+    "promessa/Cargo.toml": "3154ec3920f783b161e3df70a48da00ee350927ab533d7822d636345c82ea56d"
+  },
   "target_resolves": {
     "base": {
       "aho-corasick-1.1.4": {
@@ -490,11 +504,11 @@
         "build_dependencies": [],
         "features": []
       },
-      "cofre-types-0.1.0-ffe3b764f7b1a24757cb2425ce69e01669301dc5": {
+      "cofre-types-0.1.1": {
         "runtime_dependencies": [
           {
             "name": "gen_platform",
-            "package_key": "gen-platform-0.1.8-97aaf2e4ce3cfbc50d0f7377d227bda42dd4d2c6",
+            "package_key": "gen-platform-0.1.33",
             "kind": "normal",
             "features": [],
             "uses_default_features": true,
@@ -504,7 +518,7 @@
           },
           {
             "name": "gen_types",
-            "package_key": "gen-types-0.1.8-97aaf2e4ce3cfbc50d0f7377d227bda42dd4d2c6",
+            "package_key": "gen-types-0.1.33",
             "kind": "normal",
             "features": [],
             "uses_default_features": true,
@@ -685,7 +699,7 @@
           "std"
         ]
       },
-      "gen-macros-0.1.8-97aaf2e4ce3cfbc50d0f7377d227bda42dd4d2c6": {
+      "gen-macros-0.1.33": {
         "runtime_dependencies": [
           {
             "name": "proc_macro2",
@@ -724,11 +738,11 @@
         "build_dependencies": [],
         "features": []
       },
-      "gen-platform-0.1.8-97aaf2e4ce3cfbc50d0f7377d227bda42dd4d2c6": {
+      "gen-platform-0.1.33": {
         "runtime_dependencies": [
           {
             "name": "gen_macros",
-            "package_key": "gen-macros-0.1.8-97aaf2e4ce3cfbc50d0f7377d227bda42dd4d2c6",
+            "package_key": "gen-macros-0.1.33",
             "kind": "normal",
             "features": [],
             "uses_default_features": true,
@@ -738,7 +752,7 @@
           },
           {
             "name": "gen_types",
-            "package_key": "gen-types-0.1.8-97aaf2e4ce3cfbc50d0f7377d227bda42dd4d2c6",
+            "package_key": "gen-types-0.1.33",
             "kind": "normal",
             "features": [],
             "uses_default_features": true,
@@ -792,7 +806,7 @@
         "build_dependencies": [],
         "features": []
       },
-      "gen-types-0.1.8-97aaf2e4ce3cfbc50d0f7377d227bda42dd4d2c6": {
+      "gen-types-0.1.33": {
         "runtime_dependencies": [
           {
             "name": "blake3",
@@ -2186,7 +2200,7 @@
           },
           {
             "name": "cofre_types",
-            "package_key": "cofre-types-0.1.0-ffe3b764f7b1a24757cb2425ce69e01669301dc5",
+            "package_key": "cofre-types-0.1.1",
             "kind": "normal",
             "features": [],
             "uses_default_features": true,
@@ -5125,7 +5139,7 @@
     "clap_lex-1.1.0": {
       "edition": "2024"
     },
-    "cofre-types-0.1.0-ffe3b764f7b1a24757cb2425ce69e01669301dc5": {
+    "cofre-types-0.1.1": {
       "edition": "2024"
     },
     "colorchoice-1.0.5": {
@@ -5169,14 +5183,14 @@
     "form_urlencoded-1.2.2": {
       "edition": "2018"
     },
-    "gen-macros-0.1.8-97aaf2e4ce3cfbc50d0f7377d227bda42dd4d2c6": {
+    "gen-macros-0.1.33": {
       "edition": "2024",
       "proc_macro": true
     },
-    "gen-platform-0.1.8-97aaf2e4ce3cfbc50d0f7377d227bda42dd4d2c6": {
+    "gen-platform-0.1.33": {
       "edition": "2024"
     },
-    "gen-types-0.1.8-97aaf2e4ce3cfbc50d0f7377d227bda42dd4d2c6": {
+    "gen-types-0.1.33": {
       "edition": "2024"
     },
     "getrandom-0.3.4": {
@@ -5567,11 +5581,6 @@
       "build_script": "build.rs"
     }
   },
-  "git_nar_sha256": {
-    "cofre-types-0.1.0-ffe3b764f7b1a24757cb2425ce69e01669301dc5": "sha256-Rcep5j086wzPLQcTt4ug/h9vVr/OUf9Zemy/9u8pdb0=",
-    "gen-macros-0.1.8-97aaf2e4ce3cfbc50d0f7377d227bda42dd4d2c6": "sha256-/qPu9zmukIQuTj76JofI0drfJ7h69z9sneMSUVZqIak=",
-    "gen-platform-0.1.8-97aaf2e4ce3cfbc50d0f7377d227bda42dd4d2c6": "sha256-/qPu9zmukIQuTj76JofI0drfJ7h69z9sneMSUVZqIak=",
-    "gen-types-0.1.8-97aaf2e4ce3cfbc50d0f7377d227bda42dd4d2c6": "sha256-/qPu9zmukIQuTj76JofI0drfJ7h69z9sneMSUVZqIak="
-  },
+  "git_nar_sha256": {},
   "flake_metadata": {}
 }

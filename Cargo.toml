@@ -28,12 +28,19 @@ camelot-posture-controller = { path = "camelot-posture-controller" }
 # from the lib (as DeriveTataraDomain / DeriveKeywordSexp), so a consumer must
 # NOT name tatara-lisp-derive itself.
 tatara-lisp = { version = "0.3.3" }
-shikumi = { git = "https://github.com/pleme-io/shikumi", branch = "main" }
-shigoto = { git = "https://github.com/pleme-io/shigoto", branch = "main" }
-shigoto-types = { git = "https://github.com/pleme-io/shigoto", branch = "main" }
-shigoto-dag = { git = "https://github.com/pleme-io/shigoto", branch = "main" }
-cofre-types = { git = "https://github.com/pleme-io/cofre", branch = "main" }
-tameshi = { git = "https://github.com/pleme-io/tameshi", branch = "main" }
+# crates.io, not git. A `git` dep with `branch = "main"` and no `version` is
+# not merely untidy — crates.io REFUSES to accept a crate carrying one, so
+# every one of these lines was a hard block on ever releasing this workspace.
+# That is why `promessa-types` is 404 on crates.io while ten of its eleven
+# sibling crates are published, and why engenho's move to registry deps
+# (`c33e5d3`) broke: it depended on a crate this workspace could not ship.
+# All six resolve from the registry as of 2026-08-04.
+shikumi = { version = "0.1" }
+shigoto = { version = "0.1" }
+shigoto-types = { version = "0.1" }
+shigoto-dag = { version = "0.1" }
+cofre-types = { version = "0.1" }
+tameshi = { version = "0.1" }
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1" }
 serde_yaml = { version = "0.9" }
