@@ -3,7 +3,7 @@ resolver = "2"
 members = ["promessa-types", "promessa-store", "promessa-eval", "promessa-runtime", "promessa-rpc", "promessa-graphql", "promessa-rest", "promessa-mcp", "promessa-cli", "promessa", "camelot-posture-controller"]
 
 [workspace.package]
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 rust-version = "1.89.0"
 license = "MIT"

@@ -148,7 +148,7 @@ checksum = "5d20789868f4b01b2f2caec9f5c4e0213b41e3e5702a50157d699ae31ced2fcb"
 
 [[package]]
 name = "camelot-posture-controller"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "chrono",
  "promessa-types",
@@ -753,14 +753,14 @@ dependencies = [
 
 [[package]]
 name = "promessa"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "promessa-types",
 ]
 
 [[package]]
 name = "promessa-cli"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "anyhow",
  "clap",
@@ -772,7 +772,7 @@ dependencies = [
 
 [[package]]
 name = "promessa-eval"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "promessa-types",
  "serde",
@@ -782,7 +782,7 @@ dependencies = [
 
 [[package]]
 name = "promessa-graphql"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "promessa-types",
  "serde",
@@ -792,7 +792,7 @@ dependencies = [
 
 [[package]]
 name = "promessa-mcp"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "promessa-types",
  "serde",
@@ -802,7 +802,7 @@ dependencies = [
 
 [[package]]
 name = "promessa-rest"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "promessa-types",
  "serde",
@@ -812,7 +812,7 @@ dependencies = [
 
 [[package]]
 name = "promessa-rpc"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "promessa-types",
  "serde",
@@ -822,7 +822,7 @@ dependencies = [
 
 [[package]]
 name = "promessa-runtime"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "promessa-types",
  "serde",
@@ -832,7 +832,7 @@ dependencies = [
 
 [[package]]
 name = "promessa-store"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "promessa-types",
  "serde",
@@ -842,7 +842,7 @@ dependencies = [
 
 [[package]]
 name = "promessa-types"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "async-trait",
  "blake3",
