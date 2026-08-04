@@ -3,7 +3,7 @@ resolver = "2"
 members = ["promessa-types", "promessa-store", "promessa-eval", "promessa-runtime", "promessa-rpc", "promessa-graphql", "promessa-rest", "promessa-mcp", "promessa-cli", "promessa", "camelot-posture-controller"]
 
 [workspace.package]
-version = "0.1.1"
+version = "0.1.2"
 edition = "2024"
 rust-version = "1.89.0"
 license = "MIT"
@@ -24,16 +24,16 @@ authors = ["pleme-io"]
 # went out fine. The release was honestly red about it; the manifests were the
 # problem. `cargo set-version` maintains these on bump, so they track the
 # workspace version automatically. Do not strip them back to a bare path.
-promessa-types = { path = "promessa-types", version = "0.1.1" }
-promessa-store = { path = "promessa-store", version = "0.1.1" }
-promessa-eval = { path = "promessa-eval", version = "0.1.1" }
-promessa-runtime = { path = "promessa-runtime", version = "0.1.1" }
-promessa-rpc = { path = "promessa-rpc", version = "0.1.1" }
-promessa-graphql = { path = "promessa-graphql", version = "0.1.1" }
-promessa-rest = { path = "promessa-rest", version = "0.1.1" }
-promessa-mcp = { path = "promessa-mcp", version = "0.1.1" }
-promessa = { path = "promessa", version = "0.1.1" }
-camelot-posture-controller = { path = "camelot-posture-controller", version = "0.1.1" }
+promessa-types = { path = "promessa-types", version = "0.1.2" }
+promessa-store = { path = "promessa-store", version = "0.1.2" }
+promessa-eval = { path = "promessa-eval", version = "0.1.2" }
+promessa-runtime = { path = "promessa-runtime", version = "0.1.2" }
+promessa-rpc = { path = "promessa-rpc", version = "0.1.2" }
+promessa-graphql = { path = "promessa-graphql", version = "0.1.2" }
+promessa-rest = { path = "promessa-rest", version = "0.1.2" }
+promessa-mcp = { path = "promessa-mcp", version = "0.1.2" }
+promessa = { path = "promessa", version = "0.1.2" }
+camelot-posture-controller = { path = "camelot-posture-controller", version = "0.1.2" }
 # pleme-io sibling deps — git so CI works without checking out
 # every sibling. Local dev: .cargo/config.toml [patch.<url>] override.
 # tatara-lisp is a published crates.io crate — the derive macros are re-exported
