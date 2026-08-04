@@ -2,7 +2,7 @@
   "schema_version": 2,
   "cargo_lock_sha256": "1be335cad96b2bdbcfdb03e94bbe3ce58d6befb76e3476c1e6d7892b7e13d131",
   "manifest_sha256": {
-    "Cargo.toml": "32c3b1aba88a0175aca746219b7054ac08ce9e58787e5b31c7c10963bfd74ad3",
+    "Cargo.toml": "622271e2ed93d19295fd66656f81370b8d0fb463f6851f9ef349fac9d4beea01",
     "camelot-posture-controller/Cargo.toml": "8d6d35f56b4eab2f44aacda5984938a81417711714e1c93571d03dbb47ea5f7f",
     "promessa-cli/Cargo.toml": "f7f42f6846240e1549dc0d2d50641c2039aab671e05e5e3d6ac882fbbb2e01c8",
     "promessa-eval/Cargo.toml": "483316e1d1288ee7bd72f0db7f5d77212199a240ea19c9f502737b1a786cac29",

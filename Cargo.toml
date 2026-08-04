@@ -11,17 +11,29 @@ repository = "https://github.com/pleme-io/promessa"
 authors = ["pleme-io"]
 
 [workspace.dependencies]
-promessa-types = { path = "promessa-types" }
-promessa-store = { path = "promessa-store" }
-promessa-eval = { path = "promessa-eval" }
-promessa-runtime = { path = "promessa-runtime" }
-promessa-rpc = { path = "promessa-rpc" }
-promessa-graphql = { path = "promessa-graphql" }
-promessa-rest = { path = "promessa-rest" }
-promessa-mcp = { path = "promessa-mcp" }
-promessa-cli = { path = "promessa-cli" }
-promessa = { path = "promessa" }
-camelot-posture-controller = { path = "camelot-posture-controller" }
+# Internal members carry BOTH `path` and `version`. The version is not
+# redundant: cargo builds from the path locally, but a release REFUSES a
+# manifest whose dependency has no version requirement —
+#
+#   error: failed to verify manifest at camelot-posture-controller/Cargo.toml
+#     all dependencies must have a version requirement specified when
+#     publishing. dependency `promessa-types` does not specify a version
+#
+# which is exactly how ten of this workspace's eleven members failed to ship on
+# 2026-08-04, while `promessa-types` — the ONE member with no internal deps —
+# went out fine. The release was honestly red about it; the manifests were the
+# problem. `cargo set-version` maintains these on bump, so they track the
+# workspace version automatically. Do not strip them back to a bare path.
+promessa-types = { path = "promessa-types", version = "0.1.1" }
+promessa-store = { path = "promessa-store", version = "0.1.1" }
+promessa-eval = { path = "promessa-eval", version = "0.1.1" }
+promessa-runtime = { path = "promessa-runtime", version = "0.1.1" }
+promessa-rpc = { path = "promessa-rpc", version = "0.1.1" }
+promessa-graphql = { path = "promessa-graphql", version = "0.1.1" }
+promessa-rest = { path = "promessa-rest", version = "0.1.1" }
+promessa-mcp = { path = "promessa-mcp", version = "0.1.1" }
+promessa = { path = "promessa", version = "0.1.1" }
+camelot-posture-controller = { path = "camelot-posture-controller", version = "0.1.1" }
 # pleme-io sibling deps — git so CI works without checking out
 # every sibling. Local dev: .cargo/config.toml [patch.<url>] override.
 # tatara-lisp is a published crates.io crate — the derive macros are re-exported
