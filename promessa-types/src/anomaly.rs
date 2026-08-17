@@ -30,7 +30,7 @@ pub struct AnomalyEmission {
 #[derive(Serialize, Deserialize, JsonSchema, Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[serde(rename_all = "kebab-case")]
 pub enum AnomalyKind {
-    // Security-kind anomalias — first consumer per ASM-17571.
+    // Security-kind anomalias — the first consumer kind.
     CriticalCveFound,
     HighCveAged,
     AttestationMissing,

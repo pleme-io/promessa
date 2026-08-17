@@ -12,7 +12,7 @@ use crate::kind::PromessaTargetKind;
 use crate::severity::Severity;
 
 /// The TargetController trait. One per `PromessaTargetKind`:
-/// `SecurityController` (M1, akeyless-nix-images FedRAMP SCR driver),
+/// `SecurityController` (M1, the FedRAMP SCR driver),
 /// `SlaController` (M3), `CostBudgetController` (M3),
 /// `ComplianceController` (M3), `CustomerKpiController` (M3).
 ///

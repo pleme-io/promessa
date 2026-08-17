@@ -56,7 +56,7 @@ pub enum TypedAction {
 
 /// Reconciler kinds — the universal `Reconciler` engine targets per
 /// CONVERGENCE-SUBSTRATE §III.2. Subset shipping today + the new
-/// kinds the Akeyless FedRAMP SCR work pulls forward.
+/// kinds the FedRAMP SCR work pulls forward.
 #[derive(Serialize, Deserialize, JsonSchema, Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[serde(rename_all = "kebab-case")]
 pub enum ReconcilerKind {
@@ -67,7 +67,7 @@ pub enum ReconcilerKind {
     DnsRecord,
     /// Shipping today (per cartorio's MAKE-IT-REAL-PLAN consumer pulls).
     CartorioAdmit,
-    /// Akeyless FedRAMP SCR-driven (substrate-ticket S3).
+    /// FedRAMP SCR-driven (substrate-ticket S3).
     HarborMirror,
     GhcrTagRevoke,
     CosignAttest,
