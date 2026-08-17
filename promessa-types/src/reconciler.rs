@@ -80,7 +80,7 @@ pub enum ReconcilerOutcome<R> {
     /// Reconciler ships dormant-but-functional. Flipping the flag
     /// re-runs through the normal path on the next dispatch.
     ///
-    /// This is the canonical mechanism for `gameWardenForwarding` and
+    /// This is the canonical mechanism for `downstreamForwarding` and
     /// any other "ship the code, don't enable it yet" Reconciler.
     /// `flag` is `String` (not `&'static str`) so the outcome
     /// deserializes cleanly from a CR `.status.reconcilerOutcomes[]`
@@ -153,7 +153,7 @@ mod tests {
     #[test]
     fn flag_gated_is_terminal_success() {
         let o: ReconcilerOutcome<DummyReceipt> = ReconcilerOutcome::FlagGated {
-            flag: "gameWardenForwarding".into(),
+            flag: "downstreamForwarding".into(),
         };
         assert!(o.is_terminal_success());
     }
@@ -203,14 +203,14 @@ mod tests {
     #[test]
     fn outcome_serde_roundtrip_flag_gated() {
         let o: ReconcilerOutcome<DummyReceipt> = ReconcilerOutcome::FlagGated {
-            flag: "gameWardenForwarding".into(),
+            flag: "downstreamForwarding".into(),
         };
         let json = serde_json::to_value(&o).unwrap();
         assert_eq!(json["outcome"], "flag-gated");
-        assert_eq!(json["flag"], "gameWardenForwarding");
+        assert_eq!(json["flag"], "downstreamForwarding");
         let back: ReconcilerOutcome<DummyReceipt> = serde_json::from_value(json).unwrap();
         match back {
-            ReconcilerOutcome::FlagGated { flag } => assert_eq!(flag, "gameWardenForwarding"),
+            ReconcilerOutcome::FlagGated { flag } => assert_eq!(flag, "downstreamForwarding"),
             other => panic!("expected FlagGated, got {other:?}"),
         }
     }
