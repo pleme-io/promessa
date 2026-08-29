@@ -1,7 +1,7 @@
 # prumo — the tick-by-tick DELIVERY-CHAIN OPTIMIZER.
 #
 # The continuous optimizer that composes lapidar (the accept-if-improved-else-
-# revert tick self-tuner) + the camelot-posture PromessaController (the landed
+# revert tick self-tuner) + the posture PromessaController (the landed
 # seven-beat) into ONE loop optimizing every delivery-chain axis each tick,
 # converging to the cost+performance optimum.
 #
@@ -17,7 +17,7 @@
 # composes the substrate BY REFERENCE (doctrine_ref) without coupling to the
 # in-flight churn of the crates it optimizes: lapidar lives in
 # sui/sui-supercacheci (memory::evaluate_tune), the posture seven-beat in
-# promessa/camelot-posture-controller (TargetController), the config-spread in
+# promessa/promessa-posture-controller (TargetController), the config-spread in
 # breathe/crates/breathe-auction (arch × spot × ladder × perf × placement ×
 # interruption), the RUN bands in breathe + breathe-invariant, the BUILD axes in
 # super-cache-ci + breathe-catalog::builder. The concrete sealed algorithms stay
@@ -37,7 +37,7 @@ rust-version = "1.89"
 license = "MIT"
 authors = ["drzzln <drzzln@protonmail.com>"]
 repository = "https://github.com/pleme-io/promessa"
-description = "The tick-by-tick delivery-chain optimizer — composes lapidar (accept-if-improved-else-revert) + the camelot-posture seven-beat into ONE loop that drives every axis of BUILD → CACHE → TRANSFER → DEPLOY → RUN to the cost+performance optimum each tick. Each axis is a sealed typed classical/SOTA algorithm (NO ML) wrapped in lapidar's shadow-first accept-if-improved; cost-conflicts resolve by COST with an inline rationale that is loud where the intuitive choice loses; the honesty gate (tier-ladder + never-round-up) is FIXED, not tunable. The self-describing axis catalog + verification MATRIX make an ML axis, an over-claimed tier, a non-improving accept, and a regressing tick CI-caught."
+description = "The tick-by-tick delivery-chain optimizer — composes lapidar (accept-if-improved-else-revert) + the posture seven-beat into ONE loop that drives every axis of BUILD → CACHE → TRANSFER → DEPLOY → RUN to the cost+performance optimum each tick. Each axis is a sealed typed classical/SOTA algorithm (NO ML) wrapped in lapidar's shadow-first accept-if-improved; cost-conflicts resolve by COST with an inline rationale that is loud where the intuitive choice loses; the honesty gate (tier-ladder + never-round-up) is FIXED, not tunable. The self-describing axis catalog + verification MATRIX make an ML axis, an over-claimed tier, a non-improving accept, and a regressing tick CI-caught."
 
 [lib]
 name = "prumo"

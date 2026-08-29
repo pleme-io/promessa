@@ -19,8 +19,8 @@ name: ci
 #     apple-darwin target in this repo — verified, not assumed. macOS minutes
 #     bill at 10x Linux on a private repo, to run a plain Rust build.
 #  3. A HARDCODED PUBLIC RUNNER. The reusable resolves the runner by repo
-#     visibility (private → the camelot ARC pool, public → ubuntu-latest), so
-#     a private repo stops burning metered minutes entirely.
+#     visibility (private → the self-hosted ARC pool, public → ubuntu-latest),
+#     so a private repo stops burning metered minutes entirely.
 #
 # NOTHING IS DROPPED IN THE MIGRATION, and that took two fixes to substrate
 # rather than one to this file: `cargo fmt --all -- --check` had no equivalent

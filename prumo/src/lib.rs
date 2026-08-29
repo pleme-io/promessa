@@ -11,7 +11,7 @@
 //! ## What it is
 //!
 //! The continuous optimizer that composes **lapidar** (the accept-if-improved-
-//! else-revert tick self-tuner) + the **camelot-posture PromessaController** (the
+//! else-revert tick self-tuner) + the **posture PromessaController** (the
 //! landed seven-beat) into ONE loop optimizing every delivery-chain axis each
 //! tick, converging to the cost+performance optimum. Each optimization axis is a
 //! **sealed typed classical/SOTA algorithm (NO ML)** wrapped in lapidar's
@@ -38,7 +38,7 @@
 //!
 //! - **lapidar** = `sui-supercacheci::memory::evaluate_tune` — the accept-if-
 //!   improved-else-revert core ([`lapidar`], [`lapidar::LAPIDAR_DOCTRINE_REF`]).
-//! - **the posture seven-beat** = `camelot-posture-controller::CamelotPostureController`
+//! - **the posture seven-beat** = `promessa-posture-controller::PostureController`
 //!   (a `promessa_types::TargetController`) — the setpoint keeper + the only
 //!   mutator of STRUCTURE (R3); prumo is its Decide-beat inner knob optimizer.
 //! - **the config-spread** = `breathe-auction` (arch × spot × ladder × perf ×
@@ -66,7 +66,7 @@
 //!   ([`seal`]) — all pure, deterministic, and green without a cluster.
 //! - **DESIGN / LiveTODO:** the Observe/Act reconcile *loop* that reads the live
 //!   signals (grafana-MCP + breathe-MCP) and drives the composed actuators is the
-//!   camelot-posture / autorevivy coordinator (design-stage; runs manually today)
+//!   posture / autorevivy coordinator (design-stage; runs manually today)
 //!   — prumo is the substrate it drives, not a second controller. Each axis' own
 //!   live-loop tier is in the [`catalog`].
 
@@ -90,7 +90,7 @@ pub use rationale::CostRationale;
 /// assert the crate is a composition index (it cites its sources), not a fork.
 pub const COMPOSED_DOCTRINE_REFS: [&str; 5] = [
     "lapidar = sui-supercacheci::memory::evaluate_tune (accept-if-improved-else-revert)",
-    "posture = camelot-posture-controller::CamelotPostureController (the seven-beat)",
+    "posture = promessa-posture-controller::PostureController (the seven-beat)",
     "config-spread = breathe-auction (arch × spot × ladder × perf × placement × interruption)",
     "run-bands = breathe + breathe-invariant (carve/setpoint lock)",
     "build-axes = super-cache-ci + breathe-catalog::builder (DAG/max-jobs/arch/ramdisk)",

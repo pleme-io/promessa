@@ -71,7 +71,7 @@ pub enum TickSource {
     /// sizes, band setpoints, samba quota-pct, prefetch, ladder rank). The inner
     /// optimizer nested in the posture's Decide beat.
     LapidarAcceptIfImproved,
-    /// the camelot-posture PromessaController seven-beat — keeps the whole
+    /// the posture PromessaController seven-beat — keeps the whole
     /// posture's SETPOINT set and is the ONLY thing that mutates STRUCTURE (R3:
     /// QoS, RBAC, a missing dependency, a dropped `spot_allocation_strategy`).
     PostureSevenBeat,

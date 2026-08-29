@@ -77,7 +77,7 @@ pub const AXES: [ChainAxis; 25] = [
         algorithm: SealedAlgorithm::WorkingSetRamdisk,
         tick_source: TickSource::LapidarAcceptIfImproved,
         tier: Tier::AuthoredProven,
-        composes: "camelot_builder_node_group.rb ramdisk_gib:64 (size signal shipped); live MemoryBand LiveTODO",
+        composes: "builder_node_group.rb ramdisk_gib:64 (size signal shipped); live MemoryBand LiveTODO",
         sealed_at: "breathe-catalog::builder::BuilderBreatheClass.ramdisk_gib >= 32 (tested)",
     },
     // ─────────────────────────── LINK 2 — CACHE ───────────────────────────
@@ -251,7 +251,7 @@ pub const AXES: [ChainAxis; 25] = [
         algorithm: SealedAlgorithm::ScaleToZero,
         tick_source: TickSource::ReactiveNervousSystem,
         tier: Tier::Shipped,
-        composes: "cluster-autoscaler 0→N (proven on camelot) + predictive-start",
+        composes: "cluster-autoscaler 0→N (proven on one production cluster) + predictive-start",
         sealed_at: "breathe lifecycle-breath (AtFloor/Holding posture)",
     },
     ChainAxis {
@@ -261,7 +261,7 @@ pub const AXES: [ChainAxis; 25] = [
         algorithm: SealedAlgorithm::LeakDetectionFsm,
         tick_source: TickSource::ReactiveNervousSystem,
         tier: Tier::AuthoredProven,
-        composes: "camelot-posture dispatches autorevivy MaintenanceJob leak-guards by typed tag — REFERENCED, never edited (owned by autorevivy)",
+        composes: "the posture controller dispatches autorevivy MaintenanceJob leak-guards by typed tag — REFERENCED, never edited (owned by autorevivy)",
         sealed_at: "posture composes them (pure core shipped, 14 tests); closed loop LiveTODO",
     },
     ChainAxis {

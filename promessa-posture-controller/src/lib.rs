@@ -1,7 +1,7 @@
-//! `camelot-posture-controller` — the tick-by-tick posture-enforcement Viggy
+//! `promessa-posture-controller` — the tick-by-tick posture-enforcement Viggy
 //! controller.
 //!
-//! The camelot posture is not a checklist a human sweeps; it is ONE typed
+//! The posture is not a checklist a human sweeps; it is ONE typed
 //! invariant set the cluster proves it is holding **tick by tick, eternally**.
 //! This crate is the [`TargetController`] that enforces it — the pure
 //! `diff → classify → decide` core of the Viggy seven-beat (observe → diff →
@@ -153,9 +153,9 @@ pub struct OverProvisionedVolume {
     pub regenerable: bool,
 }
 
-/// The DECLARED camelot posture — the invariant set the cluster must hold.
+/// The DECLARED posture — the invariant set the cluster must hold.
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
-pub struct CamelotPostureSpec {
+pub struct PostureSpec {
     pub cluster: String,
     /// The breathe dimensions that must be held at their setpoint (the carve).
     pub carved_dimensions: BTreeSet<BandDimension>,
@@ -182,11 +182,11 @@ pub struct CamelotPostureSpec {
     pub shadow_first: bool,
 }
 
-impl CamelotPostureSpec {
-    /// The complete camelot posture: every dimension carved, scale-to-zero, 100%
+impl PostureSpec {
+    /// The complete posture: every dimension carved, scale-to-zero, 100%
     /// spot, arm, never-stuck, every leak class forbidden, shadow-first. The one
-    /// typed row that arms the whole posture — the peer of breathe's `CAMELOT`
-    /// preset at the promessa altitude.
+    /// typed row that arms the whole posture — the peer of breathe's
+    /// `SPOT_AGGRESSIVE` preset at the promessa altitude.
     #[must_use]
     pub fn full(cluster: impl Into<String>) -> Self {
         Self {
@@ -223,7 +223,7 @@ impl CamelotPostureSpec {
 }
 
 /// One predicate of the posture — an index over the invariant switches on
-/// [`CamelotPostureSpec`], so a snapshot can say WHICH part of the posture it
+/// [`PostureSpec`], so a snapshot can say WHICH part of the posture it
 /// failed to observe. Not a new taxonomy: each variant names an existing spec
 /// field, and its only job is to make blindness attributable.
 #[derive(Serialize, Deserialize, Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -291,14 +291,14 @@ impl PosturePredicate {
 /// there are none" and by "I could not look". On a cluster with no
 /// kube-state-metrics, no node-exporter and no alerting, that collapse is the
 /// exact mechanism by which this controller would classify a posture `Cosmetic`
-/// while blind. `blind` is the presence-anchor (TENDRIL §II.9): it names the
+/// while blind. `blind` is the presence-anchor: it names the
 /// predicates the observe beat could NOT evaluate this tick, so
-/// [`CamelotPostureController::verdict`] can refuse to attest a posture it did
+/// [`PostureController::verdict`] can refuse to attest a posture it did
 /// not actually see. `#[serde(default)]` keeps older payloads deserializable —
 /// though note that an old payload therefore decodes as "nothing blind", which
 /// is only sound because those payloads predate any blindness-aware producer.
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
-pub struct CamelotPostureSnapshot {
+pub struct PostureSnapshot {
     pub cluster: String,
     pub observed_at: DateTime<Utc>,
     /// Dimensions observed OFF their setpoint band (sustained, not transient).
@@ -342,8 +342,9 @@ pub enum PostureViolation {
     ///
     /// **FALSIFIED 2026-08-01 — this variant used to justify its `AlertOnly`
     /// routing with "breathe converges it on its own loop". That deference is no
-    /// longer sound and must not be re-asserted.** Observed on live camelot:
-    /// `camelot/mysql-cpu` carries `postureRef: critical-stateful`, whose tuple
+    /// longer sound and must not be re-asserted.** Observed on a live production
+    /// cluster: a stateful-database CPU band carries
+    /// `postureRef: critical-stateful`, whose tuple
     /// is `shrinkBelow: 0.0` (never shrink) and `growFactor: 1.5`, and it still
     /// emitted `shadow: 1000 -> 900` shrink proposals at `util 0.005` and
     /// `1000 -> 1250` grow proposals — a `1.25x` step, which is the superseded
@@ -507,13 +508,13 @@ fn dispatch_guard(tag: &str, spec: serde_json::Value) -> TypedAction {
 /// The typed drift — the set of posture violations this tick. Empty ⇒ the whole
 /// posture holds (a `Cosmetic` classify, the quiet steady state).
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq, Default)]
-pub struct CamelotPostureDrift {
+pub struct PostureDrift {
     pub violations: Vec<PostureViolation>,
 }
 
-impl CamelotPostureDrift {
+impl PostureDrift {
     /// Total reclaimable storage waste across all over-provisioned volumes — the
-    /// exact figure the 155GiB/5GiB receipt turns into once observed.
+    /// exact figure an over-provisioned-volume receipt turns into once observed.
     #[must_use]
     pub fn total_waste_bytes(&self) -> u64 {
         self.violations
@@ -580,12 +581,12 @@ impl PostureVerdict {
     }
 }
 
-/// The camelot-posture controller — the tick-by-tick enforcement of the whole
+/// The posture controller — the tick-by-tick enforcement of the whole
 /// posture as one typed invariant set.
 #[derive(Debug, Clone, Copy, Default)]
-pub struct CamelotPostureController;
+pub struct PostureController;
 
-impl CamelotPostureController {
+impl PostureController {
     /// Beat 3', the presence-anchored classify: pair the classified severity
     /// with whether the observe beat could actually see the whole posture.
     ///
@@ -594,11 +595,7 @@ impl CamelotPostureController {
     /// `Cosmetic` — the latter reports a blind tick as healthy, which is the
     /// exact failure this pairing exists to prevent.
     #[must_use]
-    pub fn verdict(
-        &self,
-        spec: &CamelotPostureSpec,
-        snapshot: &CamelotPostureSnapshot,
-    ) -> PostureVerdict {
+    pub fn verdict(&self, spec: &PostureSpec, snapshot: &PostureSnapshot) -> PostureVerdict {
         let severity = self.classify(&self.diff(spec, snapshot));
         if snapshot.blind.is_empty() {
             PostureVerdict::Attested { severity }
@@ -611,10 +608,10 @@ impl CamelotPostureController {
     }
 }
 
-impl TargetController for CamelotPostureController {
-    type Spec = CamelotPostureSpec;
-    type Snapshot = CamelotPostureSnapshot;
-    type Drift = CamelotPostureDrift;
+impl TargetController for PostureController {
+    type Spec = PostureSpec;
+    type Snapshot = PostureSnapshot;
+    type Drift = PostureDrift;
 
     /// The posture is a CROSS-controller business outcome, not one of the five
     /// per-domain kinds — the `Custom` escape hatch is its canonical kind.
@@ -692,7 +689,7 @@ impl TargetController for CamelotPostureController {
             });
         }
 
-        CamelotPostureDrift { violations }
+        PostureDrift { violations }
     }
 
     /// Beat 3 — classify the drift into a severity tier. Monotone: the max over
@@ -761,12 +758,64 @@ fn compose(mut actions: Vec<TypedAction>) -> TypedAction {
     }
 }
 
+// ---------------------------------------------------------------------------
+// Back-compat aliases for the 0.1.3 names (★★ MODULARIZE, DON'T DELETE).
+//
+// The old names said WHERE the posture first ran; the new ones say WHAT it is.
+// The values and behaviour are identical — only the names moved off one estate —
+// so a consumer on the previous names keeps compiling across the rename.
+//
+// The two alias FORMS are not a style choice, they are measured:
+//
+//   * `pub type` aliases the TYPE namespace only. That is enough for the three
+//     data structs, which are always named in type position or in a struct
+//     literal, and it carries a real `#[deprecated]` warning to the use site.
+//   * `PostureController` is a UNIT struct, so consumers write it in VALUE
+//     position (`let c = PostureController;`). A `type` alias does not bring a
+//     unit struct's constructor into the value namespace, and that use fails
+//     with E0423 "expected value, found type alias" — so the controller needs a
+//     `pub use` re-export, which carries both namespaces.
+//
+// The cost of that second form, stated rather than hidden: `#[deprecated]` on a
+// `use` declaration is silently ineffective — it compiles, but emits no warning
+// at the use site. So the controller alias keeps a consumer building; it cannot
+// tell them to move. The doc comment is the only notice they get.
+// ---------------------------------------------------------------------------
+
+/// DEPRECATED alias for [`PostureSpec`], kept so a 0.1.3 consumer keeps compiling.
+#[deprecated(note = "renamed to `PostureSpec` — the type names a posture, not an estate")]
+pub type CamelotPostureSpec = PostureSpec;
+
+/// DEPRECATED alias for [`PostureSnapshot`], kept so a 0.1.3 consumer keeps compiling.
+#[deprecated(note = "renamed to `PostureSnapshot` — the type names a posture, not an estate")]
+pub type CamelotPostureSnapshot = PostureSnapshot;
+
+/// DEPRECATED alias for [`PostureDrift`], kept so a 0.1.3 consumer keeps compiling.
+#[deprecated(note = "renamed to `PostureDrift` — the type names a posture, not an estate")]
+pub type CamelotPostureDrift = PostureDrift;
+
+/// DEPRECATED alias for [`PostureController`], kept so a 0.1.3 consumer keeps
+/// compiling. A `pub use` rather than a `type` because the controller is a unit
+/// struct used in value position; see the note above for why that costs the
+/// deprecation warning.
+pub use PostureController as CamelotPostureController;
+
+/// The fixture cluster name for this crate's tests, named ONCE.
+///
+/// Every case reads this const rather than re-typing a literal, so a future
+/// rename cannot leave a stale copy behind in one case while the others move.
+/// It lives at the crate root rather than inside `mod tests` because the
+/// property cases are a SIBLING module (`mod proptests`), not a nested one —
+/// each reaches it through its own `use super::*`.
+#[cfg(test)]
+const CLUSTER: &str = "test-cluster";
+
 #[cfg(test)]
 mod tests {
     use super::*;
 
-    fn snap(cluster: &str) -> CamelotPostureSnapshot {
-        CamelotPostureSnapshot {
+    fn snap(cluster: &str) -> PostureSnapshot {
+        PostureSnapshot {
             cluster: cluster.to_string(),
             observed_at: DateTime::<Utc>::from_timestamp(0, 0).unwrap(),
             off_band_dimensions: BTreeSet::new(),
@@ -785,14 +834,14 @@ mod tests {
 
     #[test]
     fn kind_is_custom_posture() {
-        assert_eq!(CamelotPostureController::KIND, PromessaTargetKind::Custom);
+        assert_eq!(PostureController::KIND, PromessaTargetKind::Custom);
     }
 
     #[test]
     fn a_healthy_posture_is_cosmetic_no_action() {
-        let c = CamelotPostureController;
-        let spec = CamelotPostureSpec::full("camelot");
-        let drift = c.diff(&spec, &snap("camelot"));
+        let c = PostureController;
+        let spec = PostureSpec::full(CLUSTER);
+        let drift = c.diff(&spec, &snap(CLUSTER));
         assert!(
             drift.violations.is_empty(),
             "a clean cluster has no violations"
@@ -806,9 +855,9 @@ mod tests {
 
     #[test]
     fn on_demand_is_the_critical_hard_law_and_auto_reacquires_spot() {
-        let c = CamelotPostureController;
-        let spec = CamelotPostureSpec::full("camelot");
-        let mut s = snap("camelot");
+        let c = PostureController;
+        let spec = PostureSpec::full(CLUSTER);
+        let mut s = snap(CLUSTER);
         s.on_demand_nodes = vec!["ip-10-0-1-9".into()];
         let drift = c.diff(&spec, &s);
         assert_eq!(
@@ -825,9 +874,9 @@ mod tests {
 
     #[test]
     fn an_orphan_cost_leak_is_critical_and_dispatches_the_reap() {
-        let c = CamelotPostureController;
-        let spec = CamelotPostureSpec::full("camelot");
-        let mut s = snap("camelot");
+        let c = PostureController;
+        let spec = PostureSpec::full(CLUSTER);
+        let mut s = snap(CLUSTER);
         s.observed_leaks.insert(LeakClass::OrphanCost);
         let drift = c.diff(&spec, &s);
         assert_eq!(c.classify(&drift), Severity::Critical);
@@ -847,9 +896,9 @@ mod tests {
         // THE no-errors discipline: a data-volume recreate is disruptive and never
         // auto-fires — it is surfaced for human approval, even though the storage
         // waste is real. (The provision-minimal default prevents NEW ones.)
-        let c = CamelotPostureController;
-        let spec = CamelotPostureSpec::full("camelot");
-        let mut s = snap("camelot");
+        let c = PostureController;
+        let spec = PostureSpec::full(CLUSTER);
+        let mut s = snap(CLUSTER);
         s.over_provisioned_volumes = vec![OverProvisionedVolume {
             pvc: "data-sui-pg-0".into(),
             waste_bytes: 48 << 30,
@@ -869,9 +918,9 @@ mod tests {
 
     #[test]
     fn a_stateful_over_provisioned_volume_is_surfaced_never_recreated() {
-        let c = CamelotPostureController;
-        let spec = CamelotPostureSpec::full("camelot");
-        let mut s = snap("camelot");
+        let c = PostureController;
+        let spec = PostureSpec::full(CLUSTER);
+        let mut s = snap(CLUSTER);
         s.over_provisioned_volumes = vec![OverProvisionedVolume {
             pvc: "data-mysql-0".into(),
             waste_bytes: 10 << 30,
@@ -884,9 +933,9 @@ mod tests {
 
     #[test]
     fn a_storage_band_off_setpoint_is_surfaced_breathe_is_the_carver() {
-        let c = CamelotPostureController;
-        let spec = CamelotPostureSpec::full("camelot");
-        let mut s = snap("camelot");
+        let c = PostureController;
+        let spec = PostureSpec::full(CLUSTER);
+        let mut s = snap(CLUSTER);
         s.off_band_dimensions.insert(BandDimension::Storage);
         let drift = c.diff(&spec, &s);
         assert_eq!(drift.violations.len(), 1);
@@ -896,20 +945,20 @@ mod tests {
 
     #[test]
     fn shadow_first_surfaces_functional_leaks_live_mode_auto_dispatches() {
-        let c = CamelotPostureController;
-        let mut s = snap("camelot");
+        let c = PostureController;
+        let mut s = snap(CLUSTER);
         s.observed_leaks.insert(LeakClass::Placement); // Functional, has an Auto guard
         // Shadow-first: a Functional composed-guard dispatch is surfaced, not fired.
-        let shadow = CamelotPostureSpec::full("camelot");
+        let shadow = PostureSpec::full(CLUSTER);
         let drift = c.diff(&shadow, &s);
         assert_eq!(
             c.decide(&shadow, c.classify(&drift), &drift),
             Decision::Alert
         );
         // Live mode: the same Functional dispatch auto-fires.
-        let live = CamelotPostureSpec {
+        let live = PostureSpec {
             shadow_first: false,
-            ..CamelotPostureSpec::full("camelot")
+            ..PostureSpec::full(CLUSTER)
         };
         match c.decide(&live, c.classify(&drift), &drift) {
             Decision::AutoCorrect(TypedAction::ReconcilerApply { spec, .. }) => {
@@ -921,9 +970,9 @@ mod tests {
 
     #[test]
     fn diff_is_pure_and_deterministic() {
-        let c = CamelotPostureController;
-        let spec = CamelotPostureSpec::full("camelot");
-        let mut s = snap("camelot");
+        let c = PostureController;
+        let spec = PostureSpec::full(CLUSTER);
+        let mut s = snap(CLUSTER);
         s.on_demand_nodes = vec!["n1".into()];
         s.observed_leaks.insert(LeakClass::OrphanCost);
         s.off_band_dimensions.insert(BandDimension::Cpu);
@@ -936,9 +985,9 @@ mod tests {
     fn classify_is_monotone_in_the_violation_set() {
         // A superset of violations is at-least-as-severe — the classify_monotonic
         // trait law. Add a Critical to a Functional-only drift; severity rises.
-        let c = CamelotPostureController;
-        let spec = CamelotPostureSpec::full("camelot");
-        let mut s = snap("camelot");
+        let c = PostureController;
+        let spec = PostureSpec::full(CLUSTER);
+        let mut s = snap(CLUSTER);
         s.off_band_dimensions.insert(BandDimension::Memory); // Functional
         let functional = c.classify(&c.diff(&spec, &s));
         s.on_demand_nodes = vec!["n1".into()]; // + Critical
@@ -952,7 +1001,7 @@ mod tests {
 
     #[test]
     fn the_full_posture_arms_every_dimension_and_leak_class() {
-        let spec = CamelotPostureSpec::full("camelot");
+        let spec = PostureSpec::full(CLUSTER);
         assert!(
             spec.carved_dimensions.contains(&BandDimension::Storage),
             "storage is a first-class carved dimension"
@@ -978,11 +1027,11 @@ mod tests {
         // a seal (BestEffort / no-requests — the victoria-logs-422 ROOT CAUSE) is
         // corrected by raising the requests-floor (breathe's isolation seal-carve),
         // Functional + composed-guard. Surfaced under shadow-first; auto in live.
-        let c = CamelotPostureController;
-        let mut s = snap("camelot");
+        let c = PostureController;
+        let mut s = snap(CLUSTER);
         s.unsealed_critical_workloads = vec!["victoria-logs".into()];
         // Shadow-first (default): surfaced + attested, not blind-fired.
-        let shadow = CamelotPostureSpec::full("camelot");
+        let shadow = PostureSpec::full(CLUSTER);
         let drift = c.diff(&shadow, &s);
         assert_eq!(drift.violations.len(), 1);
         assert_eq!(c.classify(&drift), Severity::Functional);
@@ -992,9 +1041,9 @@ mod tests {
         );
         // Live mode: the seal-carve auto-dispatches (a bounded carve — never
         // strips the seal), the root-cause correction for the stuck class.
-        let live = CamelotPostureSpec {
+        let live = PostureSpec {
             shadow_first: false,
-            ..CamelotPostureSpec::full("camelot")
+            ..PostureSpec::full(CLUSTER)
         };
         match c.decide(&live, c.classify(&drift), &drift) {
             Decision::AutoCorrect(TypedAction::ReconcilerApply { spec, .. }) => {
@@ -1012,12 +1061,12 @@ mod tests {
         // Re-placement (anti-affinity / isolate-away) reschedules pods — DISRUPTIVE
         // — so an observed-interference remediation is always human-gated, never
         // auto-fired, even in live mode (the no-errors discipline).
-        let c = CamelotPostureController;
-        let mut s = snap("camelot");
+        let c = PostureController;
+        let mut s = snap(CLUSTER);
         s.interfered_workloads = vec!["noisy-batch".into()];
-        let live = CamelotPostureSpec {
+        let live = PostureSpec {
             shadow_first: false,
-            ..CamelotPostureSpec::full("camelot")
+            ..PostureSpec::full(CLUSTER)
         };
         let drift = c.diff(&live, &s);
         match c.decide(&live, c.classify(&drift), &drift) {
@@ -1030,12 +1079,12 @@ mod tests {
     fn isolation_seal_is_not_enforced_when_the_invariant_is_disarmed() {
         // require_isolation_seal is the gate: with it off, an unsealed critical is
         // not a posture violation (a repo that opts out via its own spec).
-        let c = CamelotPostureController;
-        let mut s = snap("camelot");
+        let c = PostureController;
+        let mut s = snap(CLUSTER);
         s.unsealed_critical_workloads = vec!["x".into()];
-        let disarmed = CamelotPostureSpec {
+        let disarmed = PostureSpec {
             require_isolation_seal: false,
-            ..CamelotPostureSpec::full("camelot")
+            ..PostureSpec::full(CLUSTER)
         };
         assert!(
             c.diff(&disarmed, &s).violations.is_empty(),
@@ -1049,9 +1098,9 @@ mod tests {
     /// which is precisely how a blind loop reports health.
     #[test]
     fn a_blind_tick_never_reports_the_posture_as_held() {
-        let c = CamelotPostureController;
-        let spec = CamelotPostureSpec::full("camelot");
-        let mut s = snap("camelot");
+        let c = PostureController;
+        let spec = PostureSpec::full(CLUSTER);
+        let mut s = snap(CLUSTER);
         // Nothing observed wrong — because the band dimension was unreadable.
         s.blind.insert(PosturePredicate::Bands);
         let drift = c.diff(&spec, &s);
@@ -1080,9 +1129,9 @@ mod tests {
     /// The complementary direction — a complete, clean read DOES attest.
     #[test]
     fn a_complete_clean_tick_attests() {
-        let c = CamelotPostureController;
-        let spec = CamelotPostureSpec::full("camelot");
-        let verdict = c.verdict(&spec, &snap("camelot"));
+        let c = PostureController;
+        let spec = PostureSpec::full(CLUSTER);
+        let verdict = c.verdict(&spec, &snap(CLUSTER));
         assert!(verdict.holds());
         assert_eq!(
             verdict,
@@ -1097,9 +1146,9 @@ mod tests {
     /// severity is real and the coverage is still incomplete.
     #[test]
     fn a_degraded_tick_keeps_both_the_severity_and_the_blindness() {
-        let c = CamelotPostureController;
-        let spec = CamelotPostureSpec::full("camelot");
-        let mut s = snap("camelot");
+        let c = PostureController;
+        let spec = PostureSpec::full(CLUSTER);
+        let mut s = snap(CLUSTER);
         s.on_demand_nodes = vec!["ip-10-0-1-9".into()];
         s.blind.insert(PosturePredicate::IsolationSeal);
         let verdict = c.verdict(&spec, &s);
@@ -1110,9 +1159,9 @@ mod tests {
 
     #[test]
     fn spec_and_snapshot_round_trip_through_serde() {
-        let spec = CamelotPostureSpec::full("camelot");
+        let spec = PostureSpec::full(CLUSTER);
         let json = serde_json::to_string(&spec).unwrap();
-        let back: CamelotPostureSpec = serde_json::from_str(&json).unwrap();
+        let back: PostureSpec = serde_json::from_str(&json).unwrap();
         assert_eq!(spec, back);
     }
 }
@@ -1133,10 +1182,10 @@ mod proptests {
             off_cpu in any::<bool>(),
             leak_placement in any::<bool>(),
         ) {
-            let c = CamelotPostureController;
-            let spec = CamelotPostureSpec::full("camelot");
-            let mut s = CamelotPostureSnapshot {
-                cluster: "camelot".into(),
+            let c = PostureController;
+            let spec = PostureSpec::full(CLUSTER);
+            let mut s = PostureSnapshot {
+                cluster: CLUSTER.into(),
                 observed_at: DateTime::<Utc>::from_timestamp(0, 0).unwrap(),
                 off_band_dimensions: BTreeSet::new(),
                 on_demand_nodes: vec![],
@@ -1166,10 +1215,10 @@ mod proptests {
             regen_waste in 0u64..(1 << 40),
             stateful_waste in 0u64..(1 << 40),
         ) {
-            let c = CamelotPostureController;
-            let spec = CamelotPostureSpec::full("camelot");
-            let mut s = CamelotPostureSnapshot {
-                cluster: "camelot".into(),
+            let c = PostureController;
+            let spec = PostureSpec::full(CLUSTER);
+            let mut s = PostureSnapshot {
+                cluster: CLUSTER.into(),
                 observed_at: DateTime::<Utc>::from_timestamp(0, 0).unwrap(),
                 off_band_dimensions: BTreeSet::new(),
                 on_demand_nodes: vec![],

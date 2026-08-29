@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["promessa-types", "promessa-store", "promessa-eval", "promessa-runtime", "promessa-rpc", "promessa-graphql", "promessa-rest", "promessa-mcp", "promessa-cli", "promessa", "camelot-posture-controller"]
+members = ["promessa-types", "promessa-store", "promessa-eval", "promessa-runtime", "promessa-rpc", "promessa-graphql", "promessa-rest", "promessa-mcp", "promessa-cli", "promessa", "promessa-posture-controller"]
 
 [workspace.package]
 version = "0.1.3"
@@ -15,7 +15,7 @@ authors = ["pleme-io"]
 # redundant: cargo builds from the path locally, but a release REFUSES a
 # manifest whose dependency has no version requirement —
 #
-#   error: failed to verify manifest at camelot-posture-controller/Cargo.toml
+#   error: failed to verify manifest at promessa-posture-controller/Cargo.toml
 #     all dependencies must have a version requirement specified when
 #     publishing. dependency `promessa-types` does not specify a version
 #
@@ -33,7 +33,7 @@ promessa-graphql = { path = "promessa-graphql", version = "0.1.3" }
 promessa-rest = { path = "promessa-rest", version = "0.1.3" }
 promessa-mcp = { path = "promessa-mcp", version = "0.1.3" }
 promessa = { path = "promessa", version = "0.1.3" }
-camelot-posture-controller = { path = "camelot-posture-controller", version = "0.1.3" }
+promessa-posture-controller = { path = "promessa-posture-controller", version = "0.1.3" }
 # pleme-io sibling deps — git so CI works without checking out
 # every sibling. Local dev: .cargo/config.toml [patch.<url>] override.
 # tatara-lisp is a published crates.io crate — the derive macros are re-exported

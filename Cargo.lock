@@ -147,17 +147,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5d20789868f4b01b2f2caec9f5c4e0213b41e3e5702a50157d699ae31ced2fcb"
 
 [[package]]
-name = "camelot-posture-controller"
-version = "0.1.3"
-dependencies = [
- "chrono",
- "promessa-types",
- "proptest",
- "serde",
- "serde_json",
-]
-
-[[package]]
 name = "cc"
 version = "1.2.62"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -798,6 +787,17 @@ dependencies = [
  "serde",
  "thiserror",
  "tracing",
+]
+
+[[package]]
+name = "promessa-posture-controller"
+version = "0.1.3"
+dependencies = [
+ "chrono",
+ "promessa-types",
+ "proptest",
+ "serde",
+ "serde_json",
 ]
 
 [[package]]

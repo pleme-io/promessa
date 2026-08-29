@@ -1,5 +1,5 @@
 //! `optimizer` — **the tick loop**: lapidar (accept-if-improved-else-revert) +
-//! the camelot-posture seven-beat, composed into ONE loop over every axis.
+//! the posture seven-beat, composed into ONE loop over every axis.
 //!
 //! ## The one loop (map §6)
 //!

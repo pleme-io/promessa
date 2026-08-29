@@ -1,13 +1,13 @@
 {
   "schema_version": 2,
-  "cargo_lock_sha256": "c798eeffb697ddce820c080be69c863a53da63cb232619c66ca07c6037a76fa8",
+  "cargo_lock_sha256": "b62b0f7fa3d1c1fde224da190372d12c2612cbee11d353a476350b7d6ac5edfe",
   "manifest_sha256": {
-    "Cargo.toml": "ed21b1e4cb8386d473f2ccb5ff1ce4da530e43c06f2cab37e41f96fe7ae2e616",
-    "camelot-posture-controller/Cargo.toml": "8d6d35f56b4eab2f44aacda5984938a81417711714e1c93571d03dbb47ea5f7f",
+    "Cargo.toml": "d1e032ecced147646f1ee0fd98c440725d2afbb7b251966716ef189c19b0de8c",
     "promessa-cli/Cargo.toml": "f7f42f6846240e1549dc0d2d50641c2039aab671e05e5e3d6ac882fbbb2e01c8",
     "promessa-eval/Cargo.toml": "483316e1d1288ee7bd72f0db7f5d77212199a240ea19c9f502737b1a786cac29",
     "promessa-graphql/Cargo.toml": "7cbd8bd818b6c0331dcda154ab457adec25e17221e91e34b069330c4eb9f486f",
     "promessa-mcp/Cargo.toml": "a33042f49f11fec2ee8e6611e4be899078eee94ef5c22984a284539b9839a4f3",
+    "promessa-posture-controller/Cargo.toml": "fd882ea3afe2774919adbecbc4b20c3f3ee292d31f54d5a1d8f000855b51d09b",
     "promessa-rest/Cargo.toml": "a040f63d27302eb924b0c02168df621891e1e16ad226a49ab7d818f39095b189",
     "promessa-rpc/Cargo.toml": "b8c72ce699699872fd4b1a63414912ea3b5f39fc2b063c3dd1b02d0339f4f97e",
     "promessa-runtime/Cargo.toml": "28f08a63863541744914b1fb90ee945138df7eece054e87808b30ab8e839d8e1",
@@ -225,56 +225,6 @@
         "features": [
           "std"
         ]
-      },
-      "camelot-posture-controller-0.1.3": {
-        "runtime_dependencies": [
-          {
-            "name": "chrono",
-            "package_key": "chrono-0.4.44",
-            "kind": "normal",
-            "features": [
-              "serde"
-            ],
-            "uses_default_features": true,
-            "optional": false,
-            "target": null,
-            "tree": "target"
-          },
-          {
-            "name": "promessa_types",
-            "package_key": "promessa-types-0.1.3",
-            "kind": "normal",
-            "features": [],
-            "uses_default_features": true,
-            "optional": false,
-            "target": null,
-            "tree": "target"
-          },
-          {
-            "name": "serde",
-            "package_key": "serde-1.0.228",
-            "kind": "normal",
-            "features": [
-              "derive"
-            ],
-            "uses_default_features": true,
-            "optional": false,
-            "target": null,
-            "tree": "target"
-          },
-          {
-            "name": "serde_json",
-            "package_key": "serde_json-1.0.149",
-            "kind": "normal",
-            "features": [],
-            "uses_default_features": true,
-            "optional": false,
-            "target": null,
-            "tree": "target"
-          }
-        ],
-        "build_dependencies": [],
-        "features": []
       },
       "cc-1.2.62": {
         "runtime_dependencies": [
@@ -1961,6 +1911,56 @@
           {
             "name": "tracing",
             "package_key": "tracing-0.1.44",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "promessa-posture-controller-0.1.3": {
+        "runtime_dependencies": [
+          {
+            "name": "chrono",
+            "package_key": "chrono-0.4.44",
+            "kind": "normal",
+            "features": [
+              "serde"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "promessa_types",
+            "package_key": "promessa-types-0.1.3",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "serde",
+            "package_key": "serde-1.0.228",
+            "kind": "normal",
+            "features": [
+              "derive"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "serde_json",
+            "package_key": "serde_json-1.0.149",
             "kind": "normal",
             "features": [],
             "uses_default_features": true,
@@ -5104,13 +5104,6 @@
       "edition": "2024",
       "build_script": "build.rs"
     },
-    "camelot-posture-controller-0.1.3": {
-      "edition": "2024",
-      "lib_target": {
-        "name": "camelot_posture_controller",
-        "path": "src/lib.rs"
-      }
-    },
     "cc-1.2.62": {
       "edition": "2018"
     },
@@ -5333,6 +5326,13 @@
       "edition": "2024",
       "lib_target": {
         "name": "promessa_mcp",
+        "path": "src/lib.rs"
+      }
+    },
+    "promessa-posture-controller-0.1.3": {
+      "edition": "2024",
+      "lib_target": {
+        "name": "promessa_posture_controller",
         "path": "src/lib.rs"
       }
     },
