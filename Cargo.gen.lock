@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
-  "cargo_lock_sha256": "b62b0f7fa3d1c1fde224da190372d12c2612cbee11d353a476350b7d6ac5edfe",
+  "cargo_lock_sha256": "369eb59e247fbca7d5b04f147a8982efc649f4289a605cbc84dfde0fd83a38ea",
   "manifest_sha256": {
-    "Cargo.toml": "d1e032ecced147646f1ee0fd98c440725d2afbb7b251966716ef189c19b0de8c",
+    "Cargo.toml": "a5bf416aede467203c719c3c61a5fdd1a151549029bf82cee9fd40389d4c12f3",
     "promessa-cli/Cargo.toml": "f7f42f6846240e1549dc0d2d50641c2039aab671e05e5e3d6ac882fbbb2e01c8",
     "promessa-eval/Cargo.toml": "483316e1d1288ee7bd72f0db7f5d77212199a240ea19c9f502737b1a786cac29",
     "promessa-graphql/Cargo.toml": "7cbd8bd818b6c0331dcda154ab457adec25e17221e91e34b069330c4eb9f486f",
@@ -1690,11 +1690,11 @@
           "proc-macro"
         ]
       },
-      "promessa-0.1.3": {
+      "promessa-0.1.4": {
         "runtime_dependencies": [
           {
             "name": "promessa_types",
-            "package_key": "promessa-types-0.1.3",
+            "package_key": "promessa-types-0.1.4",
             "kind": "normal",
             "features": [],
             "uses_default_features": true,
@@ -1706,7 +1706,7 @@
         "build_dependencies": [],
         "features": []
       },
-      "promessa-cli-0.1.3": {
+      "promessa-cli-0.1.4": {
         "runtime_dependencies": [
           {
             "name": "anyhow",
@@ -1733,7 +1733,7 @@
           },
           {
             "name": "promessa_types",
-            "package_key": "promessa-types-0.1.3",
+            "package_key": "promessa-types-0.1.4",
             "kind": "normal",
             "features": [],
             "uses_default_features": true,
@@ -1778,11 +1778,11 @@
         "build_dependencies": [],
         "features": []
       },
-      "promessa-eval-0.1.3": {
+      "promessa-eval-0.1.4": {
         "runtime_dependencies": [
           {
             "name": "promessa_types",
-            "package_key": "promessa-types-0.1.3",
+            "package_key": "promessa-types-0.1.4",
             "kind": "normal",
             "features": [],
             "uses_default_features": true,
@@ -1826,11 +1826,11 @@
         "build_dependencies": [],
         "features": []
       },
-      "promessa-graphql-0.1.3": {
+      "promessa-graphql-0.1.4": {
         "runtime_dependencies": [
           {
             "name": "promessa_types",
-            "package_key": "promessa-types-0.1.3",
+            "package_key": "promessa-types-0.1.4",
             "kind": "normal",
             "features": [],
             "uses_default_features": true,
@@ -1874,11 +1874,11 @@
         "build_dependencies": [],
         "features": []
       },
-      "promessa-mcp-0.1.3": {
+      "promessa-mcp-0.1.4": {
         "runtime_dependencies": [
           {
             "name": "promessa_types",
-            "package_key": "promessa-types-0.1.3",
+            "package_key": "promessa-types-0.1.4",
             "kind": "normal",
             "features": [],
             "uses_default_features": true,
@@ -1922,7 +1922,7 @@
         "build_dependencies": [],
         "features": []
       },
-      "promessa-posture-controller-0.1.3": {
+      "promessa-posture-controller-0.1.4": {
         "runtime_dependencies": [
           {
             "name": "chrono",
@@ -1938,7 +1938,7 @@
           },
           {
             "name": "promessa_types",
-            "package_key": "promessa-types-0.1.3",
+            "package_key": "promessa-types-0.1.4",
             "kind": "normal",
             "features": [],
             "uses_default_features": true,
@@ -1972,11 +1972,11 @@
         "build_dependencies": [],
         "features": []
       },
-      "promessa-rest-0.1.3": {
+      "promessa-rest-0.1.4": {
         "runtime_dependencies": [
           {
             "name": "promessa_types",
-            "package_key": "promessa-types-0.1.3",
+            "package_key": "promessa-types-0.1.4",
             "kind": "normal",
             "features": [],
             "uses_default_features": true,
@@ -2020,11 +2020,11 @@
         "build_dependencies": [],
         "features": []
       },
-      "promessa-rpc-0.1.3": {
+      "promessa-rpc-0.1.4": {
         "runtime_dependencies": [
           {
             "name": "promessa_types",
-            "package_key": "promessa-types-0.1.3",
+            "package_key": "promessa-types-0.1.4",
             "kind": "normal",
             "features": [],
             "uses_default_features": true,
@@ -2068,11 +2068,11 @@
         "build_dependencies": [],
         "features": []
       },
-      "promessa-runtime-0.1.3": {
+      "promessa-runtime-0.1.4": {
         "runtime_dependencies": [
           {
             "name": "promessa_types",
-            "package_key": "promessa-types-0.1.3",
+            "package_key": "promessa-types-0.1.4",
             "kind": "normal",
             "features": [],
             "uses_default_features": true,
@@ -2116,11 +2116,11 @@
         "build_dependencies": [],
         "features": []
       },
-      "promessa-store-0.1.3": {
+      "promessa-store-0.1.4": {
         "runtime_dependencies": [
           {
             "name": "promessa_types",
-            "package_key": "promessa-types-0.1.3",
+            "package_key": "promessa-types-0.1.4",
             "kind": "normal",
             "features": [],
             "uses_default_features": true,
@@ -2164,7 +2164,7 @@
         "build_dependencies": [],
         "features": []
       },
-      "promessa-types-0.1.3": {
+      "promessa-types-0.1.4": {
         "runtime_dependencies": [
           {
             "name": "async_trait",
@@ -5292,14 +5292,14 @@
       "edition": "2021",
       "build_script": "build.rs"
     },
-    "promessa-0.1.3": {
+    "promessa-0.1.4": {
       "edition": "2024",
       "lib_target": {
         "name": "promessa",
         "path": "src/lib.rs"
       }
     },
-    "promessa-cli-0.1.3": {
+    "promessa-cli-0.1.4": {
       "edition": "2024",
       "binaries": [
         {
@@ -5308,63 +5308,63 @@
         }
       ]
     },
-    "promessa-eval-0.1.3": {
+    "promessa-eval-0.1.4": {
       "edition": "2024",
       "lib_target": {
         "name": "promessa_eval",
         "path": "src/lib.rs"
       }
     },
-    "promessa-graphql-0.1.3": {
+    "promessa-graphql-0.1.4": {
       "edition": "2024",
       "lib_target": {
         "name": "promessa_graphql",
         "path": "src/lib.rs"
       }
     },
-    "promessa-mcp-0.1.3": {
+    "promessa-mcp-0.1.4": {
       "edition": "2024",
       "lib_target": {
         "name": "promessa_mcp",
         "path": "src/lib.rs"
       }
     },
-    "promessa-posture-controller-0.1.3": {
+    "promessa-posture-controller-0.1.4": {
       "edition": "2024",
       "lib_target": {
         "name": "promessa_posture_controller",
         "path": "src/lib.rs"
       }
     },
-    "promessa-rest-0.1.3": {
+    "promessa-rest-0.1.4": {
       "edition": "2024",
       "lib_target": {
         "name": "promessa_rest",
         "path": "src/lib.rs"
       }
     },
-    "promessa-rpc-0.1.3": {
+    "promessa-rpc-0.1.4": {
       "edition": "2024",
       "lib_target": {
         "name": "promessa_rpc",
         "path": "src/lib.rs"
       }
     },
-    "promessa-runtime-0.1.3": {
+    "promessa-runtime-0.1.4": {
       "edition": "2024",
       "lib_target": {
         "name": "promessa_runtime",
         "path": "src/lib.rs"
       }
     },
-    "promessa-store-0.1.3": {
+    "promessa-store-0.1.4": {
       "edition": "2024",
       "lib_target": {
         "name": "promessa_store",
         "path": "src/lib.rs"
       }
     },
-    "promessa-types-0.1.3": {
+    "promessa-types-0.1.4": {
       "edition": "2024",
       "lib_target": {
         "name": "promessa_types",
