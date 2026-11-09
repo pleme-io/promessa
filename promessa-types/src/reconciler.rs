@@ -117,8 +117,7 @@ pub enum ReconcilerError {
 }
 
 impl ReconcilerError {
-    /// Whether the engine should retry. Per CONVERGENCE-SUBSTRATE
-    /// §III.2.5: only `Transient` retries.
+    /// Whether the engine should retry: only `Transient` retries.
     #[must_use]
     pub fn is_retryable(&self) -> bool {
         matches!(self, ReconcilerError::Transient { .. })

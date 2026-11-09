@@ -3,8 +3,8 @@
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
-/// What a controller decides to do, in typed form. Per VIGGY-AUTHORING
-/// §5 + VIGGY-LEGOS Part IV, every action terminates in either FluxCD,
+/// What a controller decides to do, in typed form. Every action
+/// terminates in either FluxCD,
 /// pangea-operator's universal Reconciler engine, cofre, or
 /// crachá-controller. The dispatch graph is finite, typed, and
 /// exhaustive.
