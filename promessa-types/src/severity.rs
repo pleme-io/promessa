@@ -1,10 +1,10 @@
-//! `Severity` — three-tier monotonic classification per VIGGY-AUTHORING §4.
+//! `Severity` — three-tier monotonic classification.
 
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
 /// The three canonical severity tiers. Order is monotonic:
-/// `Cosmetic < Functional < Critical`. Per VIGGY-AUTHORING §4.2, the
+/// `Cosmetic < Functional < Critical`. The
 /// `classify_monotonic` trait law is property-tested for every
 /// [`crate::TargetController`] — strictly larger drift produces
 /// at-least-as-severe Severity.

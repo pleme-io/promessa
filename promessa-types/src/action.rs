@@ -13,7 +13,7 @@ use serde::{Deserialize, Serialize};
 pub enum TypedAction {
     /// Commit a patch under `k8s/clusters/<cluster>/` — backed by
     /// `GithubRepoReconciler` + FluxCD source/kustomize/helm
-    /// controllers. The default action (per VIGGY-AUTHORING §5
+    /// controllers. The default action (per the
     /// GITOPS-NATIVE directive).
     FluxCommit {
         path: String,
@@ -21,7 +21,7 @@ pub enum TypedAction {
     },
 
     /// Apply via one of the catalogued Reconciler kinds. ~30 LoC + thin
-    /// chart per kind per CONVERGENCE-SUBSTRATE §III.2.
+    /// chart per kind.
     ReconcilerApply {
         reconciler: ReconcilerKind,
         spec: serde_json::Value,
@@ -50,12 +50,12 @@ pub enum TypedAction {
     Compose(Vec<TypedAction>),
 
     /// Explicitly do nothing this tick. Idempotent on `act()` per
-    /// trait law `act_idempotent_on_noop` (VIGGY-AUTHORING §5.2).
+    /// trait law `act_idempotent_on_noop`.
     Noop,
 }
 
-/// Reconciler kinds — the universal `Reconciler` engine targets per
-/// CONVERGENCE-SUBSTRATE §III.2. Subset shipping today + the new
+/// Reconciler kinds — the universal `Reconciler` engine targets.
+/// Subset shipping today + the new
 /// kinds the FedRAMP SCR work pulls forward.
 #[derive(Serialize, Deserialize, JsonSchema, Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[serde(rename_all = "kebab-case")]
@@ -74,7 +74,7 @@ pub enum ReconcilerKind {
     SbomGenerate,
     SlsaProvenance,
     RenovateBaseImageBump,
-    /// Planned per CONVERGENCE-SUBSTRATE §III.2.
+    /// Planned.
     VaultPolicy,
     HelmRelease,
     K8sNative,

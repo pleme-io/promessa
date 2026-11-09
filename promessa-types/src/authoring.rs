@@ -1,7 +1,7 @@
-//! Authoring-decision typed enums — VIGGY-AUTHORING §15.1.
+//! Authoring-decision typed enums.
 //!
 //! These types are the *output* of the five-question diagnostic
-//! (VIGGY-AUTHORING §1). They reify the substrate-route discipline so
+//! They reify the substrate-route discipline so
 //! the "is this a promessa?" decision is itself a typed value, not a
 //! gut call.
 

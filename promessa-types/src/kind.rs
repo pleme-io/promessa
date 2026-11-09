@@ -4,7 +4,7 @@ use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
 /// The five canonical TargetController kinds plus a Custom escape
-/// hatch. Per VIGGY-AUTHORING §1.1 Q5, every promessa classifies into
+/// hatch. Every promessa classifies into
 /// exactly one of these. Adding a sixth kind requires a substrate-
 /// improvement ticket — three Custom uses force extraction of a new
 /// canonical kind (★★ macros-everywhere three-times rule).

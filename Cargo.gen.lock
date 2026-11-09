@@ -3,7 +3,7 @@
   "cargo_lock_sha256": "2e17b0476b946068518c843b6c70901b79c0ec1b390cce1b56a73cec538a7dc7",
   "manifest_sha256": {
     "Cargo.toml": "cbf1d9ae4a5cba31ae6a1483aeadc67e80f07be29c069752740be67deab1e3a7",
-    "promessa-cli/Cargo.toml": "f7f42f6846240e1549dc0d2d50641c2039aab671e05e5e3d6ac882fbbb2e01c8",
+    "promessa-cli/Cargo.toml": "acb410af89506804f1fd6f372d3ce2aed63162208ebbff966586a5769ef47798",
     "promessa-eval/Cargo.toml": "4b63c24c7f00cfa1327c3124126e70073a91a988040ab286947679aa51199dd4",
     "promessa-graphql/Cargo.toml": "6fb7e1ea9e531f42ec1864128aa666c42fb3367de70779865c8778f53b281c44",
     "promessa-mcp/Cargo.toml": "8dd92ac9034c6cd3497310fef72d99bf9d66d50c723337d4fb6f06922676867d",

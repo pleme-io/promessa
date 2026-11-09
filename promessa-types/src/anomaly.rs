@@ -21,7 +21,7 @@ pub struct AnomalyEmission {
     pub ts: DateTime<Utc>,
     pub payload: serde_json::Value,
     /// BLAKE3 hash of the canonical JSON serialization — anchors the
-    /// emission in AnomalyChain per VIGGY-AUTHORING §15.4.
+    /// emission in AnomalyChain.
     pub canonical_hash: String,
 }
 

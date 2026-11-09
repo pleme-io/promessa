@@ -1,6 +1,6 @@
 //! `TargetController` — the central trait every per-kind controller
 //! implements. Trait laws cross-pinned via the `trait_laws_obeyed!`
-//! macro (VIGGY-AUTHORING §10.1).
+//! macro.
 
 use std::fmt::Debug;
 
@@ -16,9 +16,9 @@ use crate::severity::Severity;
 /// `SlaController` (M3), `CostBudgetController` (M3),
 /// `ComplianceController` (M3), `CustomerKpiController` (M3).
 ///
-/// Per VIGGY-LEGOS Part II.6, the diff/classify/decide functions are
+/// The diff/classify/decide functions are
 /// **pure** — same inputs, same outputs, no side effects. This is the
-/// load-bearing invariant `act_no_shell` (VIGGY-AUTHORING §5.2 trait
+/// load-bearing invariant `act_no_shell` (trait
 /// law `act_no_shell`) — pure compute on typed inputs; I/O happens at
 /// the Observation and Action legs only.
 pub trait TargetController: Send + Sync + 'static {

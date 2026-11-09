@@ -6,7 +6,7 @@ use serde::{Deserialize, Serialize};
 use crate::action::TypedAction;
 
 /// What the controller decides this tick. Routed through
-/// `RemediationPolicy` before any action is taken (VIGGY-AUTHORING §5).
+/// `RemediationPolicy` before any action is taken.
 #[derive(Serialize, Deserialize, JsonSchema, Debug, Clone, PartialEq, Eq)]
 #[serde(tag = "verdict", rename_all = "kebab-case")]
 pub enum Decision {
@@ -26,17 +26,16 @@ pub enum Decision {
     Alert,
 
     /// Drop the decision after repeated failure — surface to the
-    /// EscalationLadder. Trait law `repeated_failure_terminates`
-    /// (VIGGY-AUTHORING §9.3).
+    /// EscalationLadder. Trait law `repeated_failure_terminates`.
     SuppressedAfterRepeatedFailure { failure_count: u32 },
 }
 
 /// How decisions are routed to actions. Declared per promessa via
-/// `:remediation-policy` (VIGGY-AUTHORING §8.3).
+/// `:remediation-policy`.
 #[derive(Serialize, Deserialize, JsonSchema, Debug, Clone, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]
 pub enum RemediationPolicy {
-    /// Take no action. Used for retiring promessas (VIGGY-AUTHORING §8.2).
+    /// Take no action. Used for retiring promessas.
     NoOp,
     /// Emit anomalia, never dispatch action. P0 shadow mode.
     Alert,

@@ -1,6 +1,6 @@
 [package]
 name = "promessa-cli"
-description = "CLI binary `promessa` — `promessa get/history/inspect/...` operator surface per VIGGY-AUTHORING §11.2."
+description = "CLI binary `promessa` — `promessa get/history/inspect/...` operator surface."
 version.workspace = true
 edition.workspace = true
 license.workspace = true

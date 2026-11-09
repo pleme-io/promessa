@@ -8,8 +8,7 @@
 //! 1. [`TargetController`] — the central trait. Every per-kind controller
 //!    (Security, SLA, CostBudget, Compliance, CustomerKpi) implements
 //!    it. The trait IS the surface; `trait_laws_obeyed!(MyController)`
-//!    cross-pins every implementor against 10 invariants
-//!    (VIGGY-AUTHORING §10.1).
+//!    cross-pins every implementor against 10 invariants.
 //!
 //! 2. [`PromessaTargetKind`] — the canonical five (+ Custom escape
 //!    hatch). One promessa declares exactly one kind.

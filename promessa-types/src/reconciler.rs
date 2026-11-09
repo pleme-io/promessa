@@ -1,16 +1,14 @@
-//! `Reconciler` — the trait for the universal Reconciler engine per
-//! VIGGY-LEGOS Part IV + CONVERGENCE-SUBSTRATE §III.2.
+//! `Reconciler` — the trait for the universal Reconciler engine.
 //!
 //! Every [`crate::action::ReconcilerKind`] variant in
 //! [`crate::action::TypedAction::ReconcilerApply`] maps to exactly one
 //! [`Reconciler`] impl that **wraps** an existing substrate primitive —
 //! cartorio admit, Zot tag revoke, FluxCD git commit, skopeo Harbor
-//! mirror, … The wrap-not-compete invariant (VIGGY-AUTHORING §3.3):
+//! mirror, … The wrap-not-compete invariant:
 //! Reconcilers never reinvent. They thread typed inputs into existing
 //! tools and surface the tool's response as a typed receipt.
 //!
-//! ## Trait laws (Reconciler-side, per VIGGY-AUTHORING §5.2 +
-//! VIGGY-LEGOS Part IV.7)
+//! ## Trait laws (Reconciler-side)
 //!
 //! 1. `act_idempotent_on_noop` — calling [`Reconciler::act`] when the
 //!    target state already holds returns
@@ -95,7 +93,7 @@ pub enum ReconcilerOutcome<R> {
 /// Categorized failure modes for the engine's retry policy.
 ///
 /// `Transient` is auto-retried with backoff up to `MAX_RETRIES` (set
-/// engine-side per CONVERGENCE-SUBSTRATE §III.2.5). Other variants
+/// engine-side). Other variants
 /// terminate immediately and surface to the EscalationLadder.
 #[derive(Serialize, Deserialize, JsonSchema, Debug, Clone, PartialEq, Eq, thiserror::Error)]
 #[serde(tag = "kind", rename_all = "kebab-case")]
