@@ -1,7 +1,7 @@
 //! `promessa-types` — typed surface for the Viggy Method.
 //!
 //! Source-of-truth Rust types for every typed enum, trait, and CR shape
-//! declared in [pleme-io/theory/VIGGY-AUTHORING.md] §15.1 + §15.2.
+//! the Viggy Method declares.
 //!
 //! ## Reading order
 //!

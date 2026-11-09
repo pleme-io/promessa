@@ -1,6 +1,6 @@
 [package]
 name = "promessa-rest"
-description = "Stub for promessa-rest — Viggy substrate (M1+). Pending implementation per pleme-io/theory/VIGGY-LEGOS.md."
+description = "Stub for promessa-rest — Viggy substrate (M1+). Pending implementation."
 version.workspace = true
 edition.workspace = true
 license.workspace = true
