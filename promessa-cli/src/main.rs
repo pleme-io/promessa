@@ -4,7 +4,5 @@
 
 fn main() {
     tracing_subscriber::fmt::init();
-    eprintln!(
-        "promessa CLI — Viggy M1 stub. Subcommand surface pending."
-    );
+    eprintln!("promessa CLI — Viggy M1 stub. Subcommand surface pending.");
 }
